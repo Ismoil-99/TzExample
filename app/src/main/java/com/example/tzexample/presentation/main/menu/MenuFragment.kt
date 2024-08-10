@@ -17,6 +17,7 @@ import com.example.tzexample.presentation.extensions.OrderLoadStateAdapter
 import com.example.tzexample.presentation.main.menu.adapter.AnnouncedAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -32,7 +33,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         val adapter = AnnouncedAdapter{ id, title->
 
         }
-        binding.annouucedList.adapter = adapter
+        binding.announcedList.adapter = adapter
             .withLoadStateHeaderAndFooter(
                 header = OrderLoadStateAdapter(),
                 footer = OrderLoadStateAdapter()
@@ -41,20 +42,19 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         lifecycleScope.launch{
             viewModel.listData.collectLatest{
                 launch(Dispatchers.Main){
+                    delay(500)
                     adapter.loadStateFlow.collectLatest { loadStates ->
                         if (loadStates.refresh is LoadState.Loading ){
-                            //binding.show.visibility  = View.VISIBLE
-                            //binding.empty.visibility = View.GONE
+                            binding.shimmerViewContainer.visibility  = View.VISIBLE
+                            binding.shimmerViewContainer.startShimmer()
                         }
                         else{
-                            Log.d("value","$adapter")
-                            //binding.show.visibility  = View.GONE
+                            binding.shimmerViewContainer.stopShimmer()
+                            binding.shimmerViewContainer.visibility  = View.GONE
                             if (adapter.itemCount == 0){
-//                                binding.listnews.visibility = View.GONE
-//                                binding.empty.visibility = View.VISIBLE
-
+                                binding.announcedList.visibility = View.GONE
                             }else{
-
+                                binding.announcedList.visibility = View.VISIBLE
                             }
                         }
                     }
@@ -62,6 +62,6 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
                 adapter.submitData(it)
             }
         }
-        binding.annouucedList.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.announcedList.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 }

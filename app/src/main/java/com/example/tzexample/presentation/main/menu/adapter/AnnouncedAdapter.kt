@@ -31,7 +31,7 @@ class AnnouncedAdapter(private val onInfoOrder:(idOrder:String,title:String) -> 
                         }
                         )
                     .transform(CenterCrop(),RoundedCorners(12))
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.error_image)
                     .into(iconAnnounced)
             }
         }

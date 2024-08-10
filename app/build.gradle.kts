@@ -65,5 +65,6 @@ dependencies {
     ksp(libs.dagger.compiler)
     ksp(libs.hilt.android.compiler)
     implementation(libs.androidx.paging.runtime)
+    implementation(libs.facebook.shimmer)
 
 }

@@ -26,9 +26,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:textColor="@color/black"
+        android:textColor="#424649"
         tools:text="2222222 1323"
         android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="10dp"
         />
 </LinearLayout>
