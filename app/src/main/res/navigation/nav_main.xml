@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/MenuFragment">
+
+    <fragment
+        android:id="@+id/MenuFragment"
+        android:name="com.example.tzexample.presentation.main.menu.MenuFragment"
+        android:label="@string/main_text"
+        tools:layout="@layout/fragment_menu" />
+    <fragment
+        android:id="@+id/AddFragment"
+        android:name="com.example.tzexample.presentation.main.add.AddFragment"
+        android:label="@string/add"
+        tools:layout="@layout/fragment_add" />
+    <fragment
+        android:id="@+id/SearchFragment"
+        android:name="com.example.tzexample.presentation.main.search.SearchFragment"
+        android:label="@string/history_search"
+        tools:layout="@layout/fragment_search" />
+</navigation>

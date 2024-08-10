@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_base"
+    app:startDestination="@id/flowMainFragment">
+
+    <fragment
+        android:id="@+id/flowMainFragment"
+        android:name="com.example.tzexample.presentation.main.FlowMainFragment"
+        tools:layout="@layout/fragment_flow_main"
+        android:label="FlowMainFragment" />
+</navigation>

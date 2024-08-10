@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/MenuFragment"
+        android:icon="@drawable/baseline_home"
+        android:title="@string/main_text"
+        />
+
+    <item
+        android:id="@+id/AddFragment"
+        android:icon="@drawable/baseline_format_list_bulleted_add"
+        android:title="@string/add"
+        />
+
+    <item
+        android:id="@+id/SearchFragment"
+        android:icon="@drawable/baseline_search"
+        android:title="@string/history_search"
+
+        />
+
+</menu>
