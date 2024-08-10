@@ -6,7 +6,10 @@ import android.view.View
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tzexample.R
 import com.example.tzexample.databinding.FragmentAddBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class AddFragment : Fragment(R.layout.fragment_add) {
     private val binding by viewBinding(FragmentAddBinding::bind)
 
