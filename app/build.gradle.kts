@@ -69,4 +69,6 @@ dependencies {
     implementation(libs.androidx.paging.runtime)
     implementation(libs.facebook.shimmer)
 
+    implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
+
 }

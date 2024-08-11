@@ -2,4 +2,8 @@
 <resources>
     <string name="main_text">Главная</string>
     <string name="history_search">Поиск</string>
+    <string name="desc">Описание</string>
+    <string name="call">Позвонить</string>
+    <string name="write">Написать</string>
+    <string name="error">Ошибка!</string>
 </resources>

@@ -5,4 +5,8 @@
     <string name="add">Подать объявление</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="desc">Описание</string>
+    <string name="call">Позвонить</string>
+    <string name="write">Написать</string>
+    <string name="error">Ошибка!</string>
 </resources>

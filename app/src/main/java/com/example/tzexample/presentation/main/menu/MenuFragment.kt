@@ -54,10 +54,9 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
                 header = OrderLoadStateAdapter(),
                 footer = OrderLoadStateAdapter()
             )
-
         lifecycleScope.launch{
             viewModel.listData.collectLatest{
-                launch{
+                launch(Dispatchers.Main){
                     delay(500)
                     adapter.loadStateFlow.collectLatest { loadStates ->
                         if (loadStates.refresh is LoadState.Loading ){
