@@ -1,8 +1,9 @@
 package com.example.tzexample.data.repositories
 
-import com.example.tzexample.data.models.ItemsAnnouncement
+import com.example.tzexample.data.models.Announcement
+import kotlinx.coroutines.flow.Flow
 
 
 interface BaseRepository {
-    fun getItemsAnnouncement(): kotlinx.coroutines.flow.Flow<ItemsAnnouncement>
+    fun showAnnounced(id:String):Flow<Announcement>
 }

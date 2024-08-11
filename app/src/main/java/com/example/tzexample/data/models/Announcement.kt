@@ -3,6 +3,8 @@ package com.example.tzexample.data.models
 import com.google.gson.annotations.SerializedName
 
 data class Announcement(
+    @SerializedName("id")
+    val idAnnouncement: Long,
     @SerializedName("title")
     val name:String,
     @SerializedName("description")

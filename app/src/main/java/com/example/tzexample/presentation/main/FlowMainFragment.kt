@@ -1,5 +1,6 @@
 package com.example.tzexample.presentation.main
 
+import android.view.View
 import androidx.annotation.AnyRes
 import androidx.navigation.NavController
 import androidx.navigation.ui.NavigationUI
@@ -21,5 +22,14 @@ class FlowMainFragment:BaseFlowFragment(R.layout.fragment_flow_main,R.id.fragmen
         binding.bottomNavigation.setupWithNavController(navController)
         NavigationUI.setupWithNavController(requireActivity().findViewById(R.id.toolbar),navController,null)
         NavigationUI.setupWithNavController(binding.bottomNavigation,navController,false)
+        navController.addOnDestinationChangedListener{_,destination,_ ->
+            when(destination.id) {
+                R.id.AnnouncedFragment -> {
+                    binding.bottomNavigation.visibility = View.GONE
+                }
+                else -> {
+                    binding.bottomNavigation.visibility = View.VISIBLE
+                }}
+            }
     }
 }

@@ -9,7 +9,11 @@
         android:id="@+id/MenuFragment"
         android:name="com.example.tzexample.presentation.main.menu.MenuFragment"
         android:label="@string/main_text"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_MenuFragment_to_AnnouncedFragment2"
+            app:destination="@id/AnnouncedFragment" />
+    </fragment>
     <fragment
         android:id="@+id/AddFragment"
         android:name="com.example.tzexample.presentation.main.add.AddFragment"
@@ -20,4 +24,14 @@
         android:name="com.example.tzexample.presentation.main.search.SearchFragment"
         android:label="@string/history_search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/AnnouncedFragment"
+        android:name="com.example.tzexample.presentation.main.menu.detail.AnnouncedFragment"
+        android:label=""
+        tools:layout="@layout/fragment_announced" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

@@ -22,4 +22,5 @@ class MenuViewModel @Inject constructor(
         pagingSourceFactory = { AnnouncementDataSource(baseApiService,) }
     ).flow.cachedIn(viewModelScope)
 
+     fun showAnnounced(id:String) = baseRepositoryImpl.showAnnounced(id)
 }

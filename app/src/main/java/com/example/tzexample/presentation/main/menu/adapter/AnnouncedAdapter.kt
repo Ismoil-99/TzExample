@@ -13,7 +13,7 @@ import com.example.tzexample.R
 import com.example.tzexample.data.models.Announcement
 import com.example.tzexample.databinding.ItemAnnouncedBinding
 
-class AnnouncedAdapter(private val onInfoOrder:(idOrder:String,title:String) -> Unit ) : PagingDataAdapter<Announcement, AnnouncedAdapter.ViewHolders>(DataDifferent) {
+class AnnouncedAdapter(private val onInfoOrder:(idOrder:Long,) -> Unit ) : PagingDataAdapter<Announcement, AnnouncedAdapter.ViewHolders>(DataDifferent) {
     class ViewHolders(val binding: ItemAnnouncedBinding) : RecyclerView.ViewHolder(binding.root)
 
 
@@ -33,6 +33,9 @@ class AnnouncedAdapter(private val onInfoOrder:(idOrder:String,title:String) -> 
                     .transform(CenterCrop(),RoundedCorners(12))
                     .placeholder(R.drawable.error_image)
                     .into(iconAnnounced)
+                root.setOnClickListener {
+                    onInfoOrder.invoke(getItem(position)?.idAnnouncement ?: 0)
+                }
             }
         }
     }

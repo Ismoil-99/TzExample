@@ -15,12 +15,14 @@ lifecycleViewmodelKtx = "2.8.4"
 material = "1.10.0"
 activity = "1.9.0"
 constraintlayout = "2.1.4"
-navigationFragmentKtx = "2.7.7"
+navigationFragmentKtx = "2.8.0-beta07"
 pagingRuntime = "3.3.2"
 retrofit = "retrofit-2.11.0"
 roomRuntime = "2.6.1"
 shimmerVersion = "0.5.0"
 viewbindingpropertydelegate = "1.5.6"
+navigationUiKtx = "2.8.0-beta07"
+firebaseCrashlyticsBuildtools = "3.0.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -47,8 +49,10 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 viewbindingpropertydelegate = { module = "com.github.kirich1409:viewbindingpropertydelegate", version.ref = "viewbindingpropertydelegate" }
+firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+androidNavigationSafeargs = { id = "androidx.navigation.safeargs", version.ref = "navigationUiKtx"}
 
