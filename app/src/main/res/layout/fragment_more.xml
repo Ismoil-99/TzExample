@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.main.search.SearchFragment">
+    tools:context=".presentation.main.more.MoreFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/history_search" />
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

@@ -2,6 +2,7 @@ package com.example.tzexample.data.remote.apiservices
 
 import com.example.tzexample.data.models.Announcement
 import com.example.tzexample.data.models.ItemsAnnouncement
+import com.example.tzexample.data.models.Rubrics
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -17,4 +18,7 @@ interface BaseApiService {
     suspend fun showAnnounced(
         @Path("id") id:String,
     ):Response<Announcement>
+
+    @GET("api/items/rubrics/")
+    suspend fun rubricsAnnounced():Response<List<Rubrics>>
 }

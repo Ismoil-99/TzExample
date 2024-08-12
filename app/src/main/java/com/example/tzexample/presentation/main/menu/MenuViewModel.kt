@@ -23,4 +23,6 @@ class MenuViewModel @Inject constructor(
     ).flow.cachedIn(viewModelScope)
 
      fun showAnnounced(id:String) = baseRepositoryImpl.showAnnounced(id)
+
+    fun getCountAnnounced() = baseRepositoryImpl.getCountAnnounced()
 }

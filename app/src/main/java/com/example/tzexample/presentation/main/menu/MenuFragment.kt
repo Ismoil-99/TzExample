@@ -17,9 +17,13 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tzexample.R
 import com.example.tzexample.databinding.FragmentMenuBinding
 import com.example.tzexample.presentation.extensions.OrderLoadStateAdapter
+import com.example.tzexample.presentation.extensions.UIState
+import com.example.tzexample.presentation.extensions.hideActionBar
 import com.example.tzexample.presentation.extensions.navigateSafely
+import com.example.tzexample.presentation.extensions.showActionBar
 import com.example.tzexample.presentation.main.menu.adapter.AnnouncedAdapter
 import com.example.tzexample.presentation.main.menu.detail.AnnouncedFragment
+import com.google.android.material.appbar.MaterialToolbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -33,6 +37,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     private val binding get() = _binding!!
     private val viewModel : MenuViewModel by viewModels()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,6 +50,9 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.toSearch.setOnClickListener {
+            findNavController().navigateSafely(R.id.to_search_from_main)
+        }
         val adapter = AnnouncedAdapter{ id, ->
             val direction = MenuFragmentDirections.actionMenuFragmentToAnnouncedFragment2("$id")
             findNavController().navigate(direction)
@@ -55,6 +63,15 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
                 footer = OrderLoadStateAdapter()
             )
         lifecycleScope.launch{
+            viewModel.getCountAnnounced().collectLatest { item ->
+                when(item){
+                    is UIState.Loading ->{}
+                    is UIState.Success ->{
+                        binding.countText.text = "${item.data?.countAnnouncement} объявление"
+                    }
+                    is UIState.Error ->{}
+                }
+            }
             viewModel.listData.collectLatest{
                 launch(Dispatchers.Main){
                     delay(500)

@@ -15,15 +15,20 @@
             app:destination="@id/AnnouncedFragment" />
     </fragment>
     <fragment
+        android:id="@+id/FavoriteFragment"
+        android:name="com.example.tzexample.presentation.main.favorite.FavoriteFragment"
+        android:label="@string/favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
         android:id="@+id/AddFragment"
         android:name="com.example.tzexample.presentation.main.add.AddFragment"
         android:label="@string/add"
         tools:layout="@layout/fragment_add" />
     <fragment
-        android:id="@+id/SearchFragment"
-        android:name="com.example.tzexample.presentation.main.search.SearchFragment"
-        android:label="@string/history_search"
-        tools:layout="@layout/fragment_search" />
+        android:id="@+id/MoreFragment"
+        android:name="com.example.tzexample.presentation.main.more.MoreFragment"
+        android:label="@string/more"
+        tools:layout="@layout/fragment_more" />
     <fragment
         android:id="@+id/AnnouncedFragment"
         android:name="com.example.tzexample.presentation.main.menu.detail.AnnouncedFragment"
@@ -33,5 +38,16 @@
             android:name="id"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.tzexample.presentation.main.search.RubricFragment"
+        android:label="@string/name_search"
+        tools:layout="@layout/fragment_rubrics" />
+
+    <action
+        android:id="@+id/to_search_from_main"
+        app:destination="@+id/searchFragment"
+        />
+
 
 </navigation>

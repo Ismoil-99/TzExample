@@ -10,6 +10,8 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.tzexample.R
 import com.example.tzexample.databinding.FragmentFlowMainBinding
 import com.example.tzexample.presentation.base.BaseFlowFragment
+import com.example.tzexample.presentation.extensions.hideActionBar
+import com.example.tzexample.presentation.extensions.showActionBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,6 +27,9 @@ class FlowMainFragment:BaseFlowFragment(R.layout.fragment_flow_main,R.id.fragmen
         navController.addOnDestinationChangedListener{_,destination,_ ->
             when(destination.id) {
                 R.id.AnnouncedFragment -> {
+                    binding.bottomNavigation.visibility = View.GONE
+                }
+                R.id.searchFragment -> {
                     binding.bottomNavigation.visibility = View.GONE
                 }
                 else -> {

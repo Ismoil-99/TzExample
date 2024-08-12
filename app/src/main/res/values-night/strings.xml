@@ -6,4 +6,8 @@
     <string name="call">Позвонить</string>
     <string name="write">Написать</string>
     <string name="error">Ошибка!</string>
+    <string name="favorite">Избранное</string>
+    <string name="more">Еще</string>
+    <string name="name_search">Поиск обявление</string>
+    <string name="show_empty_fav">Добавляйте обявление в избранное , чтобы посмотреть их позже.</string>
 </resources>

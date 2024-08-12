@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.main.menu.MenuFragment">
+    tools:context=".presentation.main.search.RubricFragment">
+
     <LinearLayout
         android:id="@+id/to_search"
         android:layout_width="match_parent"
@@ -28,22 +29,20 @@
             android:paddingStart="15dp"
             />
         <TextView
-            android:id="@+id/count_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            tools:text="@string/name_search"
+            android:text="@string/name_search"
             android:paddingStart="10dp"
             />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/announced_list"
+        android:id="@+id/rubrics"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        tools:listitem="@layout/list_rubric"
+        android:layout_marginTop="5dp"
         android:visibility="gone"
-        tools:listitem="@layout/item_announced"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        />
+        android:layout_height="match_parent"/>
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_view_container"
         android:layout_width="match_parent"
@@ -56,12 +55,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <include layout="@layout/data_loading_state" />
-            <include layout="@layout/data_loading_state" />
-            <include layout="@layout/data_loading_state" />
-            <include layout="@layout/data_loading_state" />
-
+            <include layout="@layout/date_load_rubric" />
+            <include layout="@layout/date_load_rubric" />
+            <include layout="@layout/date_load_rubric" />
+            <include layout="@layout/date_load_rubric" />
+            <include layout="@layout/date_load_rubric" />
+            <include layout="@layout/date_load_rubric" />
+            <include layout="@layout/date_load_rubric" />
         </LinearLayout>
 
+
     </com.facebook.shimmer.ShimmerFrameLayout>
+
 </LinearLayout>

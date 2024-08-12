@@ -7,16 +7,20 @@
         />
 
     <item
+        android:id="@+id/FavoriteFragment"
+        android:icon="@drawable/baseline_favorite"
+        android:title="@string/favorite"
+        />
+    <item
         android:id="@+id/AddFragment"
         android:icon="@drawable/baseline_format_list_bulleted_add"
         android:title="@string/add"
         />
 
     <item
-        android:id="@+id/SearchFragment"
-        android:icon="@drawable/baseline_search"
-        android:title="@string/history_search"
-
+        android:id="@+id/MoreFragment"
+        android:icon="@drawable/baseline_more_horiz"
+        android:title="@string/more"
         />
 
 </menu>
