@@ -40,14 +40,29 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.tzexample.presentation.main.search.RubricFragment"
+        android:name="com.example.tzexample.presentation.main.search.rubric.RubricFragment"
         android:label="@string/name_search"
         tools:layout="@layout/fragment_rubrics" />
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.tzexample.presentation.main.search.category.CategoryFragment"
+        android:label=""
+        tools:layout="@layout/fragment_category" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
 
     <action
         android:id="@+id/to_search_from_main"
         app:destination="@+id/searchFragment"
         />
-
+    <action
+        android:id="@+id/to_category"
+        app:destination="@+id/categoryFragment"
+        />
 
 </navigation>

@@ -33,7 +33,7 @@ class AnnouncedFragment : Fragment() {
 
     private var _binding: FragmentAnnouncedBinding? = null
     private val binding get() = _binding!!
-    val args: AnnouncedFragmentArgs by navArgs()
+    private val args: AnnouncedFragmentArgs by navArgs()
     private val viewModel : MenuViewModel by viewModels()
 
     override fun onCreateView(

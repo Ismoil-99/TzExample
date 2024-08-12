@@ -1,6 +1,7 @@
 package com.example.tzexample.data.repositories
 
 import com.example.tzexample.data.models.Announcement
+import com.example.tzexample.data.models.Category
 import com.example.tzexample.data.models.ItemsAnnouncement
 import com.example.tzexample.data.models.Rubrics
 import com.example.tzexample.presentation.extensions.UIState
@@ -13,4 +14,6 @@ interface BaseRepository {
     fun getCountAnnounced():Flow<UIState<ItemsAnnouncement>>
 
     fun rubricsAnnounced():Flow<UIState<List<Rubrics>>>
+
+    fun categoryRubric(id: String):Flow<UIState<List<Category>>>
 }

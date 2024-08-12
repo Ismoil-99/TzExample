@@ -29,6 +29,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 @AndroidEntryPoint
@@ -67,7 +68,9 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
                 when(item){
                     is UIState.Loading ->{}
                     is UIState.Success ->{
-                        binding.countText.text = "${item.data?.countAnnouncement} объявление"
+                        withContext(Dispatchers.Main){
+                            binding.countText.text = "${item.data?.countAnnouncement} объявление"
+                        }
                     }
                     is UIState.Error ->{}
                 }

@@ -1,4 +1,4 @@
-package com.example.tzexample.presentation.main.search
+package com.example.tzexample.presentation.main.search.rubric
 
 import android.os.Bundle
 import android.util.Log
@@ -9,12 +9,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tzexample.R
-import com.example.tzexample.databinding.FragmentMenuBinding
 import com.example.tzexample.databinding.FragmentRubricsBinding
 import com.example.tzexample.presentation.extensions.UIState
-import com.example.tzexample.presentation.main.search.adapter.RubricAdapter
+import com.example.tzexample.presentation.main.search.category.CategoryFragmentDirections
+import com.example.tzexample.presentation.main.search.rubric.adapter.RubricAdapter
 import com.google.android.material.appbar.MaterialToolbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -30,6 +31,7 @@ class RubricFragment : Fragment(R.layout.fragment_rubrics) {
         super.onCreate(savedInstanceState)
         requireActivity().findViewById<MaterialToolbar>(R.id.toolbar).visibility = View.GONE
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,7 +44,9 @@ class RubricFragment : Fragment(R.layout.fragment_rubrics) {
         super.onViewCreated(view, savedInstanceState)
         binding.rubrics.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = RubricAdapter {
+            adapter = RubricAdapter {idCategory,nameCategory ->
+                val directions = CategoryFragmentDirections.toCategory(idCategory,nameCategory)
+                findNavController().navigate(directions)
 
             }
         }
@@ -68,9 +72,13 @@ class RubricFragment : Fragment(R.layout.fragment_rubrics) {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        requireActivity().findViewById<MaterialToolbar>(R.id.toolbar).visibility = View.GONE
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         requireActivity().findViewById<MaterialToolbar>(R.id.toolbar).visibility = View.VISIBLE
     }
-
 }

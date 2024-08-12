@@ -1,4 +1,4 @@
-package com.example.tzexample.presentation.main.search
+package com.example.tzexample.presentation.main.search.rubric
 
 import androidx.lifecycle.ViewModel
 import com.example.tzexample.data.repositories.BaseRepositoryImpl

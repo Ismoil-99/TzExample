@@ -1,4 +1,4 @@
-package com.example.tzexample.presentation.main.search.adapter
+package com.example.tzexample.presentation.main.search.rubric.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +12,7 @@ import com.example.tzexample.data.models.Rubrics
 import com.example.tzexample.databinding.ListRubricBinding
 
 class RubricAdapter(
-                            private val onItemClicked: (idCategory:String,) -> Unit,
+    private val onItemClicked: (idCategory:String,nameCategory:String) -> Unit,
 ): ListAdapter<Rubrics, RubricAdapter.MedicineViewHolder>(FinishDiffUtil()) {
 
 
@@ -37,6 +37,11 @@ class RubricAdapter(
                   .into(binding.iconsRubric)
               nameRubric.text = rubric.nameRubric
           }
+        }
+        init {
+            binding.root.setOnClickListener {
+                onItemClicked.invoke("${getItem(absoluteAdapterPosition).idRubrics}",getItem(absoluteAdapterPosition).nameRubric)
+            }
         }
     }
 

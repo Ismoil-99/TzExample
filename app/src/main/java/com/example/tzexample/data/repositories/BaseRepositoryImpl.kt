@@ -2,6 +2,7 @@ package com.example.tzexample.data.repositories
 
 import android.util.Log
 import com.example.tzexample.data.models.Announcement
+import com.example.tzexample.data.models.Category
 import com.example.tzexample.data.models.ItemsAnnouncement
 import com.example.tzexample.data.models.Rubrics
 import com.example.tzexample.data.remote.apiservices.BaseApiService
@@ -65,6 +66,28 @@ class BaseRepositoryImpl @Inject constructor(
             emit(UIState.Loading())
             try {
                 val response = baseApiService.rubricsAnnounced()
+                if (response.isSuccessful) {
+                    if (response.body() != null && response.code() == 200) {
+                        emit(UIState.Success(data = response.body()!!))
+                    } else {
+                        emit(UIState.Error(message = response.code().toString()))
+                    }
+                } else {
+                    emit(UIState.Error(message = response.code().toString()))
+                }
+            } catch (e: HttpException) {
+                emit(UIState.Error(message = e.message.toString()))
+            } catch (e: Throwable) {
+                emit(UIState.Error(message = e.message.toString()))
+            }
+        }
+    }
+
+    override fun categoryRubric(id: String): Flow<UIState<List<Category>>> {
+        return flow {
+            emit(UIState.Loading())
+            try {
+                val response = baseApiService.categoryRubrics(id)
                 if (response.isSuccessful) {
                     if (response.body() != null && response.code() == 200) {
                         emit(UIState.Success(data = response.body()!!))
