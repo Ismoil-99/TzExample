@@ -70,5 +70,7 @@ dependencies {
     implementation(libs.facebook.shimmer)
 
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    implementation("io.github.chaosleung:pinview:1.4.4")
+
 
 }

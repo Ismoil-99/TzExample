@@ -13,4 +13,15 @@
     <string name="more">Еще</string>
     <string name="name_search">Поиск обявление</string>
     <string name="show_empty_fav">Добавляйте обявление в избранное , чтобы посмотреть их позже.</string>
+    <string name="sing_in">Регистрация</string>
+    <string name="sms">СМС-код</string>
+    <string name="content_auth">Чтобы размещать обьявление нужно войти.</string>
+    <string name="sing_in_text">Войти</string>
+    <string name="putnumber">"Введите номер "</string>
+    <string name="title_number">Мобильный номер</string>
+    <string name="make_it">Powered by IT-SERVICE</string>
+    <string name="signup">Регистрация</string>
+    <string name="send_sms_tel_text">Код оправлен на номер</string>
+    <string name="coutine">Продолжить</string>
+    <string name="sms_text">Смс-Код</string>
 </resources>

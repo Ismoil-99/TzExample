@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_auth"
+    app:startDestination="@id/singInFragment">
+
+    <fragment
+        android:id="@+id/singInFragment"
+        android:name="com.example.tzexample.presentation.ui.auth.signin.SingInFragment"
+        android:label="@string/sing_in"
+        tools:layout="@layout/fragment_sing_in" >
+        <action
+            android:id="@+id/action_singInFragment_to_smsFragment"
+            app:destination="@id/smsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/smsFragment"
+        android:name="com.example.tzexample.presentation.ui.auth.sms.SmsFragment"
+        android:label="@string/sms"
+        tools:layout="@layout/fragment_sms" >
+        <argument
+            android:name="number"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

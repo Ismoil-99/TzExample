@@ -7,7 +7,18 @@
 
     <fragment
         android:id="@+id/flowMainFragment"
-        android:name="com.example.tzexample.presentation.main.FlowMainFragment"
+        android:name="com.example.tzexample.presentation.ui.main.FlowMainFragment"
         tools:layout="@layout/fragment_flow_main"
         android:label="FlowMainFragment" />
+    <fragment
+        android:id="@+id/flowAuthFragment"
+        android:name="com.example.tzexample.presentation.ui.auth.FlowAuthFragment"
+        android:label="@string/sing_in"
+        tools:layout="@layout/fragment_flow_auth"
+        />
+
+    <action
+        android:id="@+id/to_flow_auth"
+        app:destination="@+id/flowAuthFragment"
+        />
 </navigation>

@@ -10,4 +10,8 @@
     <string name="more">Еще</string>
     <string name="name_search">Поиск обявление</string>
     <string name="show_empty_fav">Добавляйте обявление в избранное , чтобы посмотреть их позже.</string>
+    <string name="sing_in">Регистрация</string>
+    <string name="sms">СМС-код</string>
+    <string name="content_auth">Чтобы размещать обьявление нужно войти.</string>
+    <string name="sing_in_text">Войти</string>
 </resources>

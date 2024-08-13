@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.main.add.AddFragment">
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".presentation.ui.main.add.AddFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/name_auth"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="" />
+        android:layout_height="wrap_content"
+        android:text="@string/content_auth"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/sign_in"
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:text="@string/sing_in_text"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/green"
+        />
 
-</FrameLayout>
+</LinearLayout>
