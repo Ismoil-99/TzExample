@@ -35,6 +35,9 @@ class FlowMainFragment:BaseFlowFragment(R.layout.fragment_flow_main,R.id.fragmen
                 R.id.categoryFragment -> {
                     binding.bottomNavigation.visibility = View.GONE
                 }
+                R.id.showCategoryFragment -> {
+                    binding.bottomNavigation.visibility = View.GONE
+                }
                 else -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }}

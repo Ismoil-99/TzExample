@@ -10,4 +10,6 @@ class CategoryViewModel @Inject constructor(
     private val baseRepositoryImpl: BaseRepositoryImpl
 ) :ViewModel() {
     fun categoryRubrics(id:String) = baseRepositoryImpl.categoryRubric(id)
+
+    fun showAnnounced() = baseRepositoryImpl.getListAnnounced()
 }

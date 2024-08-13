@@ -16,4 +16,6 @@ interface BaseRepository {
     fun rubricsAnnounced():Flow<UIState<List<Rubrics>>>
 
     fun categoryRubric(id: String):Flow<UIState<List<Category>>>
+
+    fun getListAnnounced():Flow<UIState<ItemsAnnouncement>>
 }

@@ -55,6 +55,15 @@
             android:name="title"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/showCategoryFragment"
+        android:name="com.example.tzexample.presentation.main.search.sowcategory.ShowCategoryFragment"
+        android:label="fragment_show_category"
+        tools:layout="@layout/fragment_show_category" >
+        <argument
+            android:name="nameTitle"
+            app:argType="string" />
+    </fragment>
 
     <action
         android:id="@+id/to_search_from_main"
@@ -63,6 +72,15 @@
     <action
         android:id="@+id/to_category"
         app:destination="@+id/categoryFragment"
+        />
+    <action
+        android:id="@+id/to_announced"
+        app:destination="@id/AnnouncedFragment"
+        />
+
+    <action
+        android:id="@+id/show_category"
+        app:destination="@+id/showCategoryFragment"
         />
 
 </navigation>

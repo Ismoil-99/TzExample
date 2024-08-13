@@ -105,5 +105,27 @@ class BaseRepositoryImpl @Inject constructor(
         }
     }
 
+    override fun getListAnnounced(): Flow<UIState<ItemsAnnouncement>> {
+        return flow {
+            emit(UIState.Loading())
+            try {
+                val response = baseApiService.getItems(2)
+                if (response.isSuccessful) {
+                    if (response.body() != null && response.code() == 200) {
+                        emit(UIState.Success(data = response.body()!!))
+                    } else {
+                        emit(UIState.Error(message = response.code().toString()))
+                    }
+                } else {
+                    emit(UIState.Error(message = response.code().toString()))
+                }
+            } catch (e: HttpException) {
+                emit(UIState.Error(message = e.message.toString()))
+            } catch (e: Throwable) {
+                emit(UIState.Error(message = e.message.toString()))
+            }
+        }
+    }
+
 
 }
