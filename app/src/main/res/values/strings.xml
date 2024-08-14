@@ -37,4 +37,9 @@
     <string name="pick_photo">Сделать фотографию</string>
     <string name="pick_galery">Выбрать из галерии</string>
     <string name="image">Фото не выбранно!</string>
+    <string name="profile">Мой профиль</string>
+    <string name="my_announced_text">Мои обьявление</string>
+    <string name="settings_text">Настройки</string>
+    <string name="name_price">Цена</string>
+    <string name="error_price">Введите цену!</string>
 </resources>

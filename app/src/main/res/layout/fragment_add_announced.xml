@@ -112,6 +112,29 @@
                     android:layout_height="wrap_content"
                     android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/name_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/name_price"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/value_price"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:inputType="number"
+                android:background="@drawable/ramka_for_editext"
+                android:hint="введите цену"
+                android:paddingStart="15dp"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/content_text"

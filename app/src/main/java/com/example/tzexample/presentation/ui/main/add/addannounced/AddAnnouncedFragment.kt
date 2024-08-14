@@ -80,7 +80,9 @@ class AddAnnouncedFragment : Fragment() {
                 Toast.makeText(requireContext(),resources.getString(R.string.error_content),Toast.LENGTH_SHORT).show()
             }else if (cityValue.value.isEmpty()){
                 Toast.makeText(requireContext(),resources.getString(R.string.city),Toast.LENGTH_SHORT).show()
-            }else if (imageValue.value == null){
+            }else if (view.findViewById<EditText>(R.id.value_price).text.isEmpty()){
+                Toast.makeText(requireContext(),resources.getString(R.string.error_price),Toast.LENGTH_SHORT).show()
+            } else if (imageValue.value == null){
                 Toast.makeText(requireContext(),resources.getString(R.string.image),Toast.LENGTH_SHORT).show()
             } else{
                 lifecycleScope.launch(Dispatchers.IO) {
@@ -90,14 +92,15 @@ class AddAnnouncedFragment : Fragment() {
                         contentAnnounced = view.findViewById<EditText>(R.id.value_content).text.toString(),
                         cityAnnounced = cityValue.value,
                         telAnnounced = view.findViewById<EditText>(R.id.value_tell).text.toString(),
+                        priceAnnounced = view.findViewById<EditText>(R.id.value_price).text.toString().toLong(),
                         imageAnnounced = requireContext().contentResolver.openInputStream(imageValue.value!!)!!.readBytes()
                     )
                     viewModel.insertAnnounced(
                         announced
                     )
                 }
-                Log.d("value","${view.findViewById<EditText>(R.id.value_title).text},${view.findViewById<EditText>(R.id.value_tell).text.isEmpty()},${view.findViewById<EditText>(R.id.value_content).text},${cityValue.value},${imageValue.value}")
-            }
+                activityNavController().navigateUp()
+                }
         }
         view.findViewById<MaterialCardView>(R.id.upload_image).setOnClickListener {
             val selectUpload = UploadImageBottomSheet{ uri ->

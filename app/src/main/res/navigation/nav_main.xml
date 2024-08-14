@@ -64,6 +64,21 @@
             android:name="nameTitle"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/myProfileFragment"
+        android:name="com.example.tzexample.presentation.ui.main.more.profile.MyProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_my_profile" />
+    <fragment
+        android:id="@+id/myAnnouncedFragment"
+        android:name="com.example.tzexample.presentation.ui.main.more.myannounced.MyAnnouncedFragment"
+        android:label="@string/my_announced_text"
+        tools:layout="@layout/fragment_my_announced" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.tzexample.presentation.ui.main.more.settings.SettingsFragment"
+        android:label="@string/settings_text"
+        tools:layout="@layout/fragment_settings" />
     <action
         android:id="@+id/to_search_from_main"
         app:destination="@+id/searchFragment"
@@ -81,5 +96,19 @@
         android:id="@+id/show_category"
         app:destination="@+id/showCategoryFragment"
         />
+    <action
+        android:id="@+id/to_profile"
+        app:destination="@+id/myProfileFragment"
+        />
+    <action
+        android:id="@+id/to_my_announced"
+        app:destination="@+id/myAnnouncedFragment"
+        />
+
+    <action
+        android:id="@+id/to_settings"
+        app:destination="@+id/settingsFragment"
+        />
+
 
 </navigation>

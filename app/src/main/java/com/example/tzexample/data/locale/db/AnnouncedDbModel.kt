@@ -16,6 +16,8 @@ data class AnnouncedDbModel(
     val cityAnnounced:String,
     @ColumnInfo("telephone")
     val telAnnounced:String,
+    @ColumnInfo("price")
+    val priceAnnounced:Long,
     @ColumnInfo(name = "imageData", typeAffinity = ColumnInfo.BLOB)
     val imageAnnounced:ByteArray
 )

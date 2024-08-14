@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [AnnouncedDbModel::class,
-], version = 1, exportSchema = false)
+], version = 2, exportSchema = false)
 abstract class LocaleDataBase : RoomDatabase() {
 
     abstract fun announcedDb(): AnnouncedDao
