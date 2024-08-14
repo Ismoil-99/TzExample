@@ -5,9 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.main.more.myannounced.MyAnnouncedFragment">
 
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_text"
+        android:textSize="20sp"
+        android:visibility="gone"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_my_announced"
         android:layout_width="match_parent"
+        android:visibility="visible"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_announced"
         />

@@ -32,4 +32,6 @@
     <string name="settings_text">Настройки</string>
     <string name="name_price">Цена</string>
     <string name="error_price">Введите цену!</string>
+    <string name="empty_text">Пусто</string>
+    <string name="succsess">Ваша обьявление успешно добавленно!</string>
 </resources>

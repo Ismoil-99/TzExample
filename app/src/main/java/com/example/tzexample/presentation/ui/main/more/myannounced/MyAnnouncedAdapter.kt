@@ -11,8 +11,7 @@ import com.example.tzexample.R
 import com.example.tzexample.data.locale.db.AnnouncedDbModel
 import com.example.tzexample.databinding.ItemAnnouncedBinding
 
-class MyAnnouncedAdapter(
-): ListAdapter<AnnouncedDbModel, MyAnnouncedAdapter.MedicineViewHolder>(FinishDiffUtil()) {
+class MyAnnouncedAdapter(private val onInfoAnnounced:(idOrder:String,) -> Unit): ListAdapter<AnnouncedDbModel, MyAnnouncedAdapter.MedicineViewHolder>(FinishDiffUtil()) {
 
 
     class FinishDiffUtil : DiffUtil.ItemCallback<AnnouncedDbModel>(){
@@ -35,7 +34,7 @@ class MyAnnouncedAdapter(
                 )
                 iconAnnounced.setImageBitmap(bitmap)
                 root.setOnClickListener {
-                    //onItemClicked.invoke(rubric.idAnnouncement ?: 0)
+                    onInfoAnnounced.invoke(rubric.id.toString())
                 }
             }
         }

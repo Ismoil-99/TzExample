@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tzexample.R
+import com.example.tzexample.presentation.ui.main.more.myannounced.showannounced.ShowMyAnnouncedFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -27,10 +30,20 @@ class MyAnnouncedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
             view.findViewById<RecyclerView>(R.id.list_my_announced).apply {
                 layoutManager = GridLayoutManager(requireContext(), 2)
-                adapter = MyAnnouncedAdapter()
+                adapter = MyAnnouncedAdapter{id ->
+                    val direction = ShowMyAnnouncedFragmentDirections.toMyAnnouncedItem(id)
+                    findNavController().navigate(direction)
+                }
             }
         viewModel.getAnnounced().observe(viewLifecycleOwner){ item ->
-            (view.findViewById<RecyclerView>(R.id.list_my_announced).adapter as MyAnnouncedAdapter).submitList(item)
+            if (item.isEmpty()){
+                view.findViewById<TextView>(R.id.empty_text).visibility = View.VISIBLE
+                view.findViewById<RecyclerView>(R.id.list_my_announced).visibility = View.GONE
+            }else{
+                view.findViewById<TextView>(R.id.empty_text).visibility = View.GONE
+                view.findViewById<RecyclerView>(R.id.list_my_announced).visibility = View.VISIBLE
+                (view.findViewById<RecyclerView>(R.id.list_my_announced).adapter as MyAnnouncedAdapter).submitList(item)
+            }
         }
 
     }

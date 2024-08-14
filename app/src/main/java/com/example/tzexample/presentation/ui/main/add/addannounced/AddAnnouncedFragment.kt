@@ -100,6 +100,7 @@ class AddAnnouncedFragment : Fragment() {
                     )
                 }
                 activityNavController().navigateUp()
+                Toast.makeText(requireContext(),resources.getString(R.string.succsess),Toast.LENGTH_SHORT).show()
                 }
         }
         view.findViewById<MaterialCardView>(R.id.upload_image).setOnClickListener {

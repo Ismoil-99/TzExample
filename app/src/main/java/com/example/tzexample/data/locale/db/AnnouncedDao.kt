@@ -15,4 +15,7 @@ interface AnnouncedDao {
 
     @Query("Select * from announced")
     fun gelAllUsers(): LiveData<List<AnnouncedDbModel>>
+
+    @Query("SELECT * FROM announced WHERE id == :id")
+    fun getAnnouncedDatabase(id: String): LiveData<AnnouncedDbModel>
 }

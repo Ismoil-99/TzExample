@@ -79,6 +79,15 @@
         android:name="com.example.tzexample.presentation.ui.main.more.settings.SettingsFragment"
         android:label="@string/settings_text"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/showMyAnnouncedFragment"
+        android:name="com.example.tzexample.presentation.ui.main.more.myannounced.showannounced.ShowMyAnnouncedFragment"
+        android:label=""
+        tools:layout="@layout/fragment_show_my_announced" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
     <action
         android:id="@+id/to_search_from_main"
         app:destination="@+id/searchFragment"
@@ -109,6 +118,11 @@
         android:id="@+id/to_settings"
         app:destination="@+id/settingsFragment"
         />
+    <action
+        android:id="@+id/to_my_announced_item"
+        app:destination="@+id/showMyAnnouncedFragment"
+        />
+
 
 
 </navigation>

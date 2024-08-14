@@ -11,4 +11,6 @@ class MyAnnouncedViewModel @Inject constructor(
 ):ViewModel() {
     fun getAnnounced() = repositoryDb.getListAnnounced()
 
+    fun getAnnouncedItem(id:String) = repositoryDb.getAnnounced(id)
+
 }

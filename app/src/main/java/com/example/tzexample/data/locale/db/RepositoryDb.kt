@@ -8,4 +8,6 @@ class RepositoryDb @Inject constructor (
     fun getListAnnounced() = announcedDao.gelAllUsers()
 
     suspend fun insertMedicine(announced: AnnouncedDbModel) = announcedDao.insertHistoryMedicine(announced)
+    fun getAnnounced(id:String) = announcedDao.getAnnouncedDatabase(id)
+
 }

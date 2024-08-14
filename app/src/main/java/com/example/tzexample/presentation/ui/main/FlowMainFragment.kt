@@ -47,6 +47,9 @@ class FlowMainFragment:BaseFlowFragment(R.layout.fragment_flow_main,R.id.fragmen
                 R.id.myProfileFragment -> {
                     binding.bottomNavigation.visibility = View.GONE
                 }
+                R.id.showMyAnnouncedFragment -> {
+                    binding.bottomNavigation.visibility = View.GONE
+                }
                 else -> {
                     binding.bottomNavigation.visibility = View.VISIBLE
                 }}
