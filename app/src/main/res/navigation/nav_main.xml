@@ -64,7 +64,6 @@
             android:name="nameTitle"
             app:argType="string" />
     </fragment>
-
     <action
         android:id="@+id/to_search_from_main"
         app:destination="@+id/searchFragment"

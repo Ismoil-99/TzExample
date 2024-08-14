@@ -16,9 +16,27 @@
         android:label="@string/sing_in"
         tools:layout="@layout/fragment_flow_auth"
         />
+    <fragment
+        android:id="@+id/addAnnouncedFragment2"
+        android:name="com.example.tzexample.presentation.ui.main.add.addannounced.AddAnnouncedFragment"
+        android:label=""
+        tools:layout="@layout/fragment_add_announced" />
 
     <action
         android:id="@+id/to_flow_auth"
         app:destination="@+id/flowAuthFragment"
+        />
+
+    <action
+        android:id="@+id/to_add_announced"
+        app:destination="@+id/addAnnouncedFragment2"
+        app:popUpTo="@+id/flowAuthFragment"
+        app:popUpToInclusive="true"
+        />
+    <action
+        android:id="@+id/to_main"
+        app:destination="@+id/flowMainFragment"
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"
         />
 </navigation>

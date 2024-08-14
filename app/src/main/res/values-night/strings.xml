@@ -14,4 +14,17 @@
     <string name="sms">СМС-код</string>
     <string name="content_auth">Чтобы размещать обьявление нужно войти.</string>
     <string name="sing_in_text">Войти</string>
+    <string name="add_announced">Добавить</string>
+    <string name="title_name_announced">Заголовок</string>
+    <string name="tell">Номер телефона</string>
+    <string name="city">Выберите город</string>
+    <string name="content">Описание</string>
+    <string name="image_text">Главная фотография</string>
+    <string name="add_announced_text">Подать обьявление</string>
+    <string name="error_title">Запольните заголовок</string>
+    <string name="error_tel">Телефон не должен быть пустым!</string>
+    <string name="error_content">Запольните описание</string>
+    <string name="pick_photo">Сделать фотографию</string>
+    <string name="pick_galery">Выбрать из галерии</string>
+    <string name="image">Фото не выбранно!</string>
 </resources>

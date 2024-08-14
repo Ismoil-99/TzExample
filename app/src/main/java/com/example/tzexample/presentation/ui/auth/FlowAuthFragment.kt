@@ -19,7 +19,7 @@ class FlowAuthFragment:BaseFlowFragment(R.layout.fragment_flow_auth,R.id.fragmen
         navController.addOnDestinationChangedListener{_,destination,_ ->
             when(destination.id) {
                     R.id.singInFragment -> {
-                        backToFlow(R.id.fragment_container_view)
+                       backToFlow(R.id.fragment_container_view)
                     }
                 else -> {
 

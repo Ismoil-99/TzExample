@@ -63,6 +63,8 @@ dependencies {
     implementation (libs.converter.gson)
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler)
+    ksp("androidx.room:room-compiler:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
     implementation(libs.hilt.android)
     ksp(libs.dagger.compiler)
     ksp(libs.hilt.android.compiler)
@@ -71,6 +73,7 @@ dependencies {
 
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
     implementation("io.github.chaosleung:pinview:1.4.4")
+    implementation ("com.github.dhaval2404:imagepicker:2.1")
 
 
 }
