@@ -20,9 +20,9 @@ abstract class BaseFlowFragment(
             childFragmentManager.findFragmentById(navHostFragmentId) as NavHostFragment
         val navController = navHostFragment.navController
 
-        setupNavigation(navController)
+        setupNavigation(navController,view)
     }
 
-    protected open fun setupNavigation(navController: NavController) {
+    protected open fun setupNavigation(navController: NavController, view: View) {
     }
 }

@@ -1,11 +1,15 @@
 package com.example.tzexample.presentation.ui.main.menu
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.annotation.RequiresExtension
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,9 +17,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import by.kirich1409.viewbindingdelegate.viewBinding
+import androidx.recyclerview.widget.RecyclerView
 import com.example.tzexample.R
-import com.example.tzexample.databinding.FragmentMenuBinding
 import com.example.tzexample.presentation.extensions.OrderLoadStateAdapter
 import com.example.tzexample.presentation.extensions.UIState
 import com.example.tzexample.presentation.extensions.hideActionBar
@@ -23,6 +26,8 @@ import com.example.tzexample.presentation.extensions.navigateSafely
 import com.example.tzexample.presentation.extensions.showActionBar
 import com.example.tzexample.presentation.ui.main.menu.adapter.AnnouncedAdapter
 import com.example.tzexample.presentation.ui.main.menu.detail.AnnouncedFragment
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.appbar.MaterialToolbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -34,8 +39,6 @@ import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class MenuFragment : Fragment(R.layout.fragment_menu) {
-    private var _binding: FragmentMenuBinding? = null
-    private val binding get() = _binding!!
     private val viewModel : MenuViewModel by viewModels()
 
 
@@ -43,23 +46,22 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMenuBinding.inflate(inflater, container, false)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_menu, container, false)
 
     }
 
+    @SuppressLint("CutPasteId")
     @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        _binding = FragmentMenuBinding.bind(view)
-        binding.toSearch.setOnClickListener {
+        view.findViewById<LinearLayout>(R.id.to_search).setOnClickListener {
             findNavController().navigateSafely(R.id.to_search_from_main)
         }
         val adapter = AnnouncedAdapter{ id, ->
             val direction = MenuFragmentDirections.actionMenuFragmentToAnnouncedFragment2("$id")
             findNavController().navigate(direction)
         }
-        binding.announcedList.adapter = adapter
+        view.findViewById<RecyclerView>(R.id.announced_list).adapter = adapter
             .withLoadStateHeaderAndFooter(
                 header = OrderLoadStateAdapter(),
                 footer = OrderLoadStateAdapter()
@@ -70,7 +72,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
                     is UIState.Loading ->{}
                     is UIState.Success ->{
                         withContext(Dispatchers.Main){
-                            binding.countText.text = "${item.data?.countAnnouncement} объявление"
+                            view.findViewById<TextView>(R.id.count_text).text = "${item.data?.countAnnouncement} объявление"
                         }
                     }
                     is UIState.Error ->{}
@@ -78,19 +80,22 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             }
             viewModel.listData.collectLatest{
                 launch(Dispatchers.Main){
-                    delay(500)
                     adapter.loadStateFlow.collectLatest { loadStates ->
                         if (loadStates.refresh is LoadState.Loading ){
-                            binding.shimmerViewContainer.visibility  = View.VISIBLE
-                            binding.shimmerViewContainer.startShimmer()
+                            view.findViewById<ShimmerFrameLayout>(R.id.shimmer_view_container).apply {
+                                visibility = View.VISIBLE
+                                startShimmer()
+                            }
                         }
                         else{
-                            binding.shimmerViewContainer.stopShimmer()
-                            binding.shimmerViewContainer.visibility  = View.GONE
+                            view.findViewById<ShimmerFrameLayout>(R.id.shimmer_view_container).apply {
+                                stopShimmer()
+                                visibility = View.GONE
+                            }
                             if (adapter.itemCount == 0){
-                                binding.announcedList.visibility = View.GONE
+                                view.findViewById<RecyclerView>(R.id.announced_list).visibility = View.GONE
                             }else{
-                                binding.announcedList.visibility = View.VISIBLE
+                                view.findViewById<RecyclerView>(R.id.announced_list).visibility = View.VISIBLE
                             }
                         }
                     }
@@ -98,11 +103,7 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
                 adapter.submitData(it)
             }
         }
-        binding.announcedList.layoutManager = GridLayoutManager(requireContext(), 2)
+        view.findViewById<RecyclerView>(R.id.announced_list).layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 }
