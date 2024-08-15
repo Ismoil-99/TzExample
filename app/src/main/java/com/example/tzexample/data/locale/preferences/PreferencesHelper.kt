@@ -21,6 +21,18 @@ class PreferencesHelper(context: Context) {
             .apply()
     }
 
+    fun setNumber(num:String){
+        preferences.edit().putString(TELL_USER,num).apply()
+    }
+
+    fun getTell():String = preferences.getString(TELL_USER,"").toString()
+
+    fun getBack():Int = preferences.getInt(BACK_FROM_PROFILE,0)
+
+    fun setBackProfile(back:Int){
+        preferences.edit().putInt(BACK_FROM_PROFILE,back).apply()
+    }
+
 
     fun isAuthored(): Boolean =
         preferences.contains(ACCESS_TOKEN) && !preferences.getString(ACCESS_TOKEN, null)
@@ -33,6 +45,8 @@ class PreferencesHelper(context: Context) {
 
     companion object {
         private const val ACCESS_TOKEN = "access_token"
+        private const val BACK_FROM_PROFILE = "back_from_profile"
+        private const val TELL_USER = "tel_user"
 
         const val PREFERENCES_FILE_NAME = "application_data"
     }

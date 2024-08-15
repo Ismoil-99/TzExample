@@ -33,9 +33,22 @@ class SmsFragment : Fragment() {
         view.findViewById<TextView>(R.id.otp_value).text = "+922 ${args.number}"
         view.findViewById<Button>(R.id.send_data).setOnClickListener {
             preferencesHelper.setToken("123eresdf23resfdv23")
-            activityNavController().navigate(R.id.to_add_announced)
+            preferencesHelper.setNumber(args.number)
+            if (preferencesHelper.getBack() == 1){
+                activityNavController().navigate(R.id.to_add_announced)
+                preferencesHelper.setBackProfile(0)
+            }else if (preferencesHelper.getBack() == 2){
+                preferencesHelper.setBackProfile(0)
+                activityNavController().navigateUp()
+            }
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        val preferencesHelper = PreferencesHelper(requireContext())
+        preferencesHelper.setBackProfile(0)
     }
 
 }

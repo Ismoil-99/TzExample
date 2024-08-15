@@ -17,8 +17,9 @@ class AddFragment : Fragment(R.layout.fragment_add) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val preferencesHelper = PreferencesHelper(requireContext()).isAuthored()
-        if (!preferencesHelper){
+        val preferencesHelper = PreferencesHelper(requireContext())
+        preferencesHelper.setBackProfile(0)
+        if (!preferencesHelper.isAuthored()){
             binding.nameAuth.visibility = View.VISIBLE
             binding.signIn.visibility = View.VISIBLE
             binding.addAnnounced.visibility = View.GONE
@@ -28,6 +29,7 @@ class AddFragment : Fragment(R.layout.fragment_add) {
             binding.addAnnounced.visibility = View.VISIBLE
         }
         binding.signIn.setOnClickListener {
+            preferencesHelper.setBackProfile(1)
             activityNavController().navigate(R.id.to_flow_auth)
         }
         binding.addAnnounced.setOnClickListener {

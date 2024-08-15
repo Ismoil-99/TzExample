@@ -34,4 +34,7 @@
     <string name="error_price">Введите цену!</string>
     <string name="empty_text">Пусто</string>
     <string name="succsess">Ваша обьявление успешно добавленно!</string>
+    <string name="user_name_text">Имя</string>
+    <string name="filname_name_text">Фамилия</string>
+    <string name="quit">Выйти</string>
 </resources>
