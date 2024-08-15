@@ -10,9 +10,10 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:visibility="visible"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -25,8 +26,8 @@
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                app:iss_placeholder="@drawable/error_image"
-                app:iss_error_image="@drawable/error_image" />
+                app:iss_error_image="@drawable/error_image"
+                app:iss_placeholder="@drawable/error_image" />
 
             <TextView
                 android:id="@+id/price_announced"
@@ -71,6 +72,23 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+    <Button
+        android:id="@+id/delete_announced"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:backgroundTint="#FB002D"
+        android:padding="12dp"
+        android:layout_marginTop="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/delete_announced"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
+        app:cornerRadius="10dp" />
 
 
 

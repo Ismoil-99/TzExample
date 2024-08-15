@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.tzexample.R
 import com.example.tzexample.data.locale.preferences.PreferencesHelper
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 
 class MyProfileFragment : Fragment() {
@@ -28,8 +29,16 @@ class MyProfileFragment : Fragment() {
         val preferencesHelper = PreferencesHelper(requireContext())
         view.findViewById<TextView>(R.id.num_user).text = preferencesHelper.getTell()
         view.findViewById<RelativeLayout>(R.id.box_quit).setOnClickListener {
-            preferencesHelper.clearPreferences()
-            findNavController().navigateUp()
+            MaterialAlertDialogBuilder(requireContext())
+                .setMessage(resources.getString(R.string.quit_user_text))
+                .setNegativeButton(resources.getString(R.string.cancel)) { dialog, which ->
+
+                }
+                .setPositiveButton(resources.getString(R.string.accept)) { dialog, which ->
+                    preferencesHelper.clearPreferences()
+                    findNavController().navigateUp()
+                }
+                .show()
         }
     }
 }

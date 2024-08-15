@@ -18,4 +18,7 @@ interface AnnouncedDao {
 
     @Query("SELECT * FROM announced WHERE id == :id")
     fun getAnnouncedDatabase(id: String): LiveData<AnnouncedDbModel>
+
+    @Query("DELETE FROM announced WHERE id = :id")
+    suspend fun removeAnnounced(id: Int)
 }

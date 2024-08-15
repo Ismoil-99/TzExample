@@ -10,4 +10,6 @@ class RepositoryDb @Inject constructor (
     suspend fun insertMedicine(announced: AnnouncedDbModel) = announcedDao.insertHistoryMedicine(announced)
     fun getAnnounced(id:String) = announcedDao.getAnnouncedDatabase(id)
 
+    suspend fun deleteAnnounced(id:Int) = announcedDao.removeAnnounced(id)
+
 }

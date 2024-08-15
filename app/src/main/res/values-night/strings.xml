@@ -37,4 +37,9 @@
     <string name="user_name_text">Имя</string>
     <string name="filname_name_text">Фамилия</string>
     <string name="quit">Выйти</string>
+    <string name="quit_user_text">Вы точно хотите выйти?</string>
+    <string name="cancel">Отмена</string>
+    <string name="accept">Да</string>
+    <string name="delete_announced">Удалить обьявление</string>
+    <string name="delete_announced_text">Вы точно хотите удалить?</string>
 </resources>

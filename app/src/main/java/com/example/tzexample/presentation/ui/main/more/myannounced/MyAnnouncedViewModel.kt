@@ -13,4 +13,6 @@ class MyAnnouncedViewModel @Inject constructor(
 
     fun getAnnouncedItem(id:String) = repositoryDb.getAnnounced(id)
 
+    suspend fun deleteAnnounced(id:Int) = repositoryDb.deleteAnnounced(id)
+
 }
