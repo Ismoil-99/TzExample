@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_sing_in" >
         <action
             android:id="@+id/action_singInFragment_to_smsFragment"
-            app:destination="@id/smsFragment" />
+            app:destination="@id/smsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/smsFragment"

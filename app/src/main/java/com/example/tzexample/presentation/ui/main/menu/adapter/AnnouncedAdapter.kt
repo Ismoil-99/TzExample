@@ -10,10 +10,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.tzexample.R
+import com.example.tzexample.data.locale.db.FavoriteDbModel
 import com.example.tzexample.data.models.Announcement
 import com.example.tzexample.databinding.ItemAnnouncedBinding
 
-class AnnouncedAdapter(private val onInfoOrder:(idOrder:Long,) -> Unit ) : PagingDataAdapter<Announcement, AnnouncedAdapter.ViewHolders>(
+class AnnouncedAdapter(
+    private val onInfoOrder:(idOrder:Long,) -> Unit,
+    private val saveFavorite:(fav:FavoriteDbModel) -> Unit
+    ) : PagingDataAdapter<Announcement, AnnouncedAdapter.ViewHolders>(
     DataDifferent
 ) {
     class ViewHolders(val binding: ItemAnnouncedBinding) : RecyclerView.ViewHolder(binding.root)
@@ -38,6 +42,22 @@ class AnnouncedAdapter(private val onInfoOrder:(idOrder:Long,) -> Unit ) : Pagin
                 root.setOnClickListener {
                     onInfoOrder.invoke(getItem(position)?.idAnnouncement ?: 0)
                 }
+
+                saveAnnounced.setOnClickListener {
+                    val convert = FavoriteDbModel(
+                        id = 0,
+                        nameFavoriteAnnounced = getItem(position)?.name!!,
+                        contentFavoriteAnnounced = getItem(position)?.contentAnnouncement!!,
+                        priceFavoriteAnnounced = getItem(position)?.priceAnnouncement!!,
+                        imageFavoriteAnnounced = if (getItem(position)!!.imagesAnnouncement.isEmpty()){
+                            ""
+                        }else{
+                            getItem(position)!!.imagesAnnouncement.first().iconUrl
+                        }
+                    )
+                    saveFavorite.invoke(convert)
+                }
+
             }
         }
     }

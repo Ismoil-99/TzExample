@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresExtension
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -26,6 +27,7 @@ import com.example.tzexample.presentation.extensions.navigateSafely
 import com.example.tzexample.presentation.extensions.showActionBar
 import com.example.tzexample.presentation.ui.main.menu.adapter.AnnouncedAdapter
 import com.example.tzexample.presentation.ui.main.menu.detail.AnnouncedFragment
+import com.example.tzexample.presentation.ui.main.search.rubric.RubricFragmentDirections
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.appbar.MaterialToolbar
@@ -54,13 +56,19 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<LinearLayout>(R.id.to_search).setOnClickListener {
-            findNavController().navigateSafely(R.id.to_search_from_main)
-        }
-        val adapter = AnnouncedAdapter{ id, ->
-            val direction = MenuFragmentDirections.actionMenuFragmentToAnnouncedFragment2("$id")
-            findNavController().navigate(direction)
-        }
+
+        val adapter = AnnouncedAdapter(
+            onInfoOrder = { id ->
+                val direction = MenuFragmentDirections.actionMenuFragmentToAnnouncedFragment2("$id")
+                findNavController().navigate(direction)
+                          },
+            saveFavorite = {fav ->
+                lifecycleScope.launch (Dispatchers.IO){
+                    viewModel.insertFavorite(fav)
+                }
+               Toast.makeText(requireContext(),getString(R.string.succsess_fav),Toast.LENGTH_SHORT).show()
+            }
+        )
         view.findViewById<RecyclerView>(R.id.announced_list).adapter = adapter
             .withLoadStateHeaderAndFooter(
                 header = OrderLoadStateAdapter(),
@@ -72,6 +80,10 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
                     is UIState.Loading ->{}
                     is UIState.Success ->{
                         withContext(Dispatchers.Main){
+                            view.findViewById<LinearLayout>(R.id.to_search).setOnClickListener {
+                                val direction = RubricFragmentDirections.toSearchFromMain(item.data?.countAnnouncement ?: 0L)
+                                findNavController().navigateSafely(direction)
+                            }
                             view.findViewById<TextView>(R.id.count_text).text = "${item.data?.countAnnouncement} объявление"
                         }
                     }

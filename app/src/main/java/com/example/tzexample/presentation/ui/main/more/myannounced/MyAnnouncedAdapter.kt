@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tzexample.R
 import com.example.tzexample.data.locale.db.AnnouncedDbModel
 import com.example.tzexample.databinding.ItemAnnouncedBinding
+import com.example.tzexample.databinding.ItemAnnouncedMyBinding
 
 class MyAnnouncedAdapter(private val onInfoAnnounced:(idOrder:String,) -> Unit): ListAdapter<AnnouncedDbModel, MyAnnouncedAdapter.MedicineViewHolder>(FinishDiffUtil()) {
 
@@ -24,7 +25,7 @@ class MyAnnouncedAdapter(private val onInfoAnnounced:(idOrder:String,) -> Unit):
         }
     }
     inner class MedicineViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        private val binding = ItemAnnouncedBinding.bind(view)
+        private val binding = ItemAnnouncedMyBinding.bind(view)
         fun bind(rubric: AnnouncedDbModel){
             binding.apply {
                 titleAnnounced.text = rubric.nameAnnounced
@@ -44,7 +45,7 @@ class MyAnnouncedAdapter(private val onInfoAnnounced:(idOrder:String,) -> Unit):
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MedicineViewHolder =
         MedicineViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_announced, parent, false)
+                .inflate(R.layout.item_announced_my, parent, false)
         )
 
     override fun onBindViewHolder(holder: MedicineViewHolder, position: Int) {

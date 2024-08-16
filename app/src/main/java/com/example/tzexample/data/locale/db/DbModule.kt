@@ -22,5 +22,10 @@ class DbModule {
     fun getAppDao(appDatabase: LocaleDataBase): AnnouncedDao {
         return appDatabase.announcedDb()
     }
+    @Provides
+    @Singleton
+    fun getFavoriteDao(appDatabase: LocaleDataBase): FavoriteAnnouncedDao {
+        return appDatabase.favoriteDb()
+    }
 
 }

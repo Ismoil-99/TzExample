@@ -71,6 +71,7 @@ class AnnouncedFragment : Fragment() {
                                    view.findViewById<ImageSlider>(R.id.image_slider).setImageList(imageList,ScaleTypes.FIT)
                                 }
                                 view.findViewById<TextView>(R.id.title_announced).text = item.data.name
+                                view.findViewById<TextView>(R.id.date_announced_text).text = "${getString(R.string.date_announced_text)} ${item.data.createdAnnouncement}"
                                 if (item.data.priceAnnouncement != 0L){
                                     view.findViewById<TextView>(R.id.price_announced).text = "${item.data.priceAnnouncement} с."
                                 }

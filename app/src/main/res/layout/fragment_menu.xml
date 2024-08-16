@@ -27,14 +27,14 @@
             android:src="@drawable/baseline_search"
             android:paddingStart="15dp"
             />
+
         <TextView
             android:id="@+id/count_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            tools:text="@string/name_search"
             android:paddingStart="10dp"
-            />
+            tools:text="@string/name_search" />
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/announced_list"
@@ -42,7 +42,6 @@
         android:layout_height="match_parent"
         android:visibility="gone"
         tools:listitem="@layout/item_announced"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         />
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_view_container"

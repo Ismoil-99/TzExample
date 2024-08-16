@@ -5,13 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.main.favorite.FavoriteFragment">
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/item_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:listitem="@layout/item_favorite_announced"
+        />
     <TextView
+        android:id="@+id/text_favorite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/show_empty_fav"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:textAlignment="center"
+        android:visibility="visible"
         android:textColor="@color/black"
         android:textSize="17sp"
         android:layout_gravity="center"

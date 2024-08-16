@@ -69,6 +69,15 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="7dp"
                 tools:text="123eemwflkdsnfkndslkvnllkmsdflskmdslf" />
+            <TextView
+                android:id="@+id/date_announced_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/date_announced_text"
+                android:textColor="@color/grey_font"
+                android:textSize="11sp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

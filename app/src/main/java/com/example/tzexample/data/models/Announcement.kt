@@ -11,6 +11,8 @@ data class Announcement(
     val contentAnnouncement: String,
     @SerializedName("price")
     val priceAnnouncement: Long,
+    @SerializedName("raise_dt")
+    val createdAnnouncement:String,
     @SerializedName("images")
     val imagesAnnouncement:List<ImageAnnouncement>
 )

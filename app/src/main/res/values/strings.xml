@@ -54,4 +54,6 @@
     <string name="delete_announced_text">Вы точно хотите удалить?</string>
     <string name="language">Язык</string>
     <string name="theme">Тема</string>
+    <string name="succsess_fav">Добавленно в избранное!</string>
+    <string name="date_announced_text">Опубликованно:</string>
 </resources>

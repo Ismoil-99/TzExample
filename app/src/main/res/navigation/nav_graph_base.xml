@@ -25,14 +25,16 @@
     <action
         android:id="@+id/to_flow_auth"
         app:destination="@+id/flowAuthFragment"
-        />
+        app:enterAnim="@anim/from_right"
+        app:exitAnim="@anim/to_left"
+        app:popEnterAnim="@anim/from_left"
+        app:popExitAnim="@anim/to_right" />
 
     <action
         android:id="@+id/to_add_announced"
         app:destination="@+id/addAnnouncedFragment2"
         app:popUpTo="@+id/flowAuthFragment"
-        app:popUpToInclusive="true"
-        />
+        app:popUpToInclusive="true" />
     <action
         android:id="@+id/to_main"
         app:destination="@+id/flowMainFragment"

@@ -26,6 +26,7 @@
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
+                android:scaleType="fitXY"
                 app:iss_error_image="@drawable/error_image"
                 app:iss_placeholder="@drawable/error_image" />
 
