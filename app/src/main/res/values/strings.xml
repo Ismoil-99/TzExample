@@ -56,4 +56,12 @@
     <string name="theme">Тема</string>
     <string name="succsess_fav">Добавленно в избранное!</string>
     <string name="date_announced_text">Опубликованно:</string>
+    <string name="filter_text">Фильтры</string>
+    <string name="all_categories">Все категории</string>
+    <string name="price_text">Цена</string>
+    <string name="sort_text">Сортировка</string>
+    <string name="defaults">По умолчанию</string>
+    <string name="dorogo">Дороже</string>
+    <string name="deshevle">Дешевле</string>
+    <string name="date">По дате</string>
 </resources>

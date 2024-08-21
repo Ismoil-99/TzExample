@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -25,6 +26,7 @@ import com.example.tzexample.data.locale.db.RubricsDbModel
 import com.example.tzexample.presentation.extensions.HorizontalWrapperAdapter
 import com.example.tzexample.presentation.extensions.UIState
 import com.example.tzexample.presentation.ui.main.menu.adapter.AnnouncedAdapter
+import com.example.tzexample.presentation.ui.main.menu.filter.FillterDialogFragment
 import com.example.tzexample.presentation.ui.main.search.category.CategoryFragmentDirections
 import com.example.tzexample.presentation.ui.main.search.rubric.adapter.RubricAdapter
 import com.facebook.shimmer.Shimmer
@@ -55,7 +57,10 @@ class MenuFragment : Fragment() {
     @RequiresExtension(extension = Build.VERSION_CODES.S, version = 7)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        view.findViewById<ImageView>(R.id.show_filter).setOnClickListener {
+            val filter = FillterDialogFragment()
+            filter.show(requireActivity().supportFragmentManager, "H")
+        }
         val adapterAnnounced = AnnouncedAdapter(
             onInfoOrder = { id ->
                 val direction = MenuFragmentDirections.actionMenuFragmentToAnnouncedFragment2("$id")

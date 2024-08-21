@@ -57,7 +57,6 @@ class RubricFragment : Fragment() {
         lifecycleScope.launch {
             viewModel.getRubricsDb().observe(viewLifecycleOwner) {rubrics ->
                 (view.findViewById<RecyclerView>(R.id.rubrics).adapter as RubricAdapter).submitList(rubrics)
-
             }
         }
     }

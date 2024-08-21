@@ -75,7 +75,6 @@ class CategoryFragment : Fragment() {
                                     findNavController().navigate(direction)
                                 }
                                 view.findViewById<GridLayout>(R.id.category).addView(textView,layoutParams)
-
                             }
                         }
                     }
