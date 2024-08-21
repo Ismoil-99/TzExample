@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresExtension
@@ -88,6 +89,10 @@ class MenuFragment : Fragment() {
                 }
             }else{
                 view.findViewById<TextView>(R.id.count_text).text = "${count[0].countAnnounced} обьявление"
+                view.findViewById<LinearLayout>(R.id.to_search).setOnClickListener {
+                    val direction = MenuFragmentDirections.toSearchFromMain(count[0].countAnnounced.toLong())
+                    findNavController().navigate(direction)
+                }
             }
         }
         viewModel.getRubricsDb().observe(viewLifecycleOwner){rubrics ->

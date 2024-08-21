@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tzexample.R
@@ -46,7 +47,7 @@ class RubricFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         view.findViewById<TextView>(R.id.count_announced).text = "${args.count} объявление"
         view.findViewById<RecyclerView>(R.id.rubrics).apply {
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = GridLayoutManager(requireContext(),2)
             adapter = RubricAdapter {idCategory,nameCategory ->
                 val directions = CategoryFragmentDirections.toCategory(idCategory,nameCategory)
                 findNavController().navigate(directions)
@@ -54,23 +55,8 @@ class RubricFragment : Fragment() {
             }
         }
         lifecycleScope.launch {
-            viewModel.rubrics().collectLatest {rubrics ->
-                when(rubrics){
-                    is UIState.Loading -> {
-                        view.findViewById<ShimmerFrameLayout>(R.id.shimmer_view_container).startShimmer()
-                    }
-                    is UIState.Success -> {
-                        view.findViewById<ShimmerFrameLayout>(R.id.shimmer_view_container).apply {
-                            stopShimmer()
-                            visibility = View.GONE
-                        }
-                        view.findViewById<RecyclerView>(R.id.rubrics).visibility = View.VISIBLE
-                        //(view.findViewById<RecyclerView>(R.id.rubrics).adapter as RubricAdapter).submitList(rubrics.data)
-                    }
-                    is UIState.Error ->{
-                        Toast.makeText(requireContext(),R.string.error,Toast.LENGTH_SHORT).show()
-                    }
-                }
+            viewModel.getRubricsDb().observe(viewLifecycleOwner) {rubrics ->
+                (view.findViewById<RecyclerView>(R.id.rubrics).adapter as RubricAdapter).submitList(rubrics)
 
             }
         }
