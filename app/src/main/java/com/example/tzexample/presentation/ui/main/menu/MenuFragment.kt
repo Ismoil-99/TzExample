@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tzexample.R
 import com.example.tzexample.data.locale.db.AnnouncedCountLocal
+import com.example.tzexample.data.locale.db.RubricsDbModel
 import com.example.tzexample.presentation.extensions.HorizontalWrapperAdapter
 import com.example.tzexample.presentation.extensions.UIState
 import com.example.tzexample.presentation.ui.main.menu.adapter.AnnouncedAdapter
@@ -47,10 +48,6 @@ class MenuFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_menu, container, false)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().findViewById<MaterialToolbar>(R.id.toolbar).visibility = View.GONE
-    }
 
 
     @SuppressLint("CutPasteId", "MissingInflatedId")
@@ -90,8 +87,41 @@ class MenuFragment : Fragment() {
                     }
                 }
             }else{
-                Log.d("value","value1")
                 view.findViewById<TextView>(R.id.count_text).text = "${count[0].countAnnounced} обьявление"
+            }
+        }
+        viewModel.getRubricsDb().observe(viewLifecycleOwner){rubrics ->
+            if (rubrics.isEmpty()){
+                lifecycleScope.launch(Dispatchers.IO) {
+                    viewModel.rubrics().collectLatest { rubric ->
+                        when(rubric){
+                            is UIState.Loading -> {
+
+                            }
+                            is UIState.Success -> {
+                                if (rubric.data != null){
+                                    val dbRubrics = rubric.data.map {rub ->
+                                        RubricsDbModel(
+                                            id = 0,
+                                            idRubric = rub.idRubrics,
+                                            nameRubric = rub.nameRubric,
+                                            imgRubric = rub.imgRubric
+                                        )
+                                    }
+                                    dbRubrics.map {
+                                        viewModel.insertRubrics(it)
+                                    }
+                                }
+                                Log.d("rubrics","$rubric")
+                            }
+                            is UIState.Error ->{
+                                Toast.makeText(requireContext(),R.string.error,Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                }
+            }else{
+                adaptersRubrics.submitList(rubrics)
             }
         }
         lifecycleScope.launch{
@@ -102,24 +132,6 @@ class MenuFragment : Fragment() {
                     }
                 }
                 adapterAnnounced.submitData(it)
-            }
-        }
-        lifecycleScope.launch {
-            viewModel.rubrics().collectLatest { rubric ->
-                when(rubric){
-                    is UIState.Loading -> {
-
-                    }
-                    is UIState.Success -> {
-                        if (rubric.data != null){
-                            adaptersRubrics.submitList(rubric.data)
-                        }
-                        Log.d("rubrics","$rubric")
-                    }
-                    is UIState.Error ->{
-                        Toast.makeText(requireContext(),R.string.error,Toast.LENGTH_SHORT).show()
-                    }
-                }
             }
         }
         val config = ConcatAdapter.Config.Builder().apply {
@@ -152,9 +164,5 @@ class MenuFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        requireActivity().findViewById<MaterialToolbar>(R.id.toolbar).visibility = View.VISIBLE
-    }
 
 }

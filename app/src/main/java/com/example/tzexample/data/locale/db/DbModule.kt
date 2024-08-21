@@ -33,4 +33,10 @@ class DbModule {
         return appDatabase.announcedDbCount()
     }
 
+    @Provides
+    @Singleton
+    fun getRubrics(appDatabase: LocaleDataBase):RubricsDao{
+        return appDatabase.rubricsDb()
+    }
+
 }

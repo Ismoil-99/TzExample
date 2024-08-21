@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tzexample.R
+import com.example.tzexample.data.locale.db.RubricsDbModel
 import com.example.tzexample.data.models.Rubrics
 import com.example.tzexample.databinding.ListRubricBinding
 
 class RubricAdapter(
     private val onItemClicked: (idCategory:String,nameCategory:String) -> Unit,
-): ListAdapter<Rubrics, RubricAdapter.MedicineViewHolder>(FinishDiffUtil()) {
+): ListAdapter<RubricsDbModel, RubricAdapter.MedicineViewHolder>(FinishDiffUtil()) {
 
     companion object {
         const val VIEW_TYPE = 4444
@@ -23,18 +24,18 @@ class RubricAdapter(
         return VIEW_TYPE
     }
 
-    class FinishDiffUtil : DiffUtil.ItemCallback<Rubrics>(){
-        override fun areItemsTheSame(oldItem: Rubrics, newItem: Rubrics): Boolean {
-            return oldItem.idRubrics == newItem.idRubrics
+    class FinishDiffUtil : DiffUtil.ItemCallback<RubricsDbModel>(){
+        override fun areItemsTheSame(oldItem: RubricsDbModel, newItem: RubricsDbModel): Boolean {
+            return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Rubrics, newItem: Rubrics): Boolean {
+        override fun areContentsTheSame(oldItem: RubricsDbModel, newItem: RubricsDbModel): Boolean {
             return oldItem == newItem
         }
     }
     inner class MedicineViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ListRubricBinding.bind(view)
-        fun bind(rubric: Rubrics){
+        fun bind(rubric: RubricsDbModel){
           binding.apply {
               Glide.with(binding.root)
                   .load(rubric.imgRubric)
@@ -47,7 +48,7 @@ class RubricAdapter(
         }
         init {
             binding.root.setOnClickListener {
-                onItemClicked.invoke("${getItem(absoluteAdapterPosition).idRubrics}",getItem(absoluteAdapterPosition).nameRubric)
+                onItemClicked.invoke("${getItem(absoluteAdapterPosition).idRubric}",getItem(absoluteAdapterPosition).nameRubric)
             }
         }
     }

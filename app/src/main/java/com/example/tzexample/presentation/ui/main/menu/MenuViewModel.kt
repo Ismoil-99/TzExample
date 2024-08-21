@@ -9,7 +9,9 @@ import com.example.tzexample.data.datasource.AnnouncementDataSource
 import com.example.tzexample.data.locale.db.AnnouncedCountLocal
 import com.example.tzexample.data.locale.db.FavoriteDbModel
 import com.example.tzexample.data.locale.db.RepositoryAnnouncedDb
+import com.example.tzexample.data.locale.db.RepositoryDbRubrics
 import com.example.tzexample.data.locale.db.RepositoryFavoriteDb
+import com.example.tzexample.data.locale.db.RubricsDbModel
 import com.example.tzexample.data.remote.apiservices.BaseApiService
 import com.example.tzexample.data.repositories.BaseRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,7 +23,8 @@ class MenuViewModel @Inject constructor(
     private val baseRepositoryImpl: BaseRepositoryImpl,
     private val baseApiService: BaseApiService,
     private val favoriteDb: RepositoryFavoriteDb,
-    private val repositoryAnnouncedDb: RepositoryAnnouncedDb
+    private val repositoryAnnouncedDb: RepositoryAnnouncedDb,
+    private val repositoryDbRubrics: RepositoryDbRubrics
 ) :ViewModel() {
 
     var listData = Pager(config = PagingConfig(pageSize = 10),
@@ -42,4 +45,8 @@ class MenuViewModel @Inject constructor(
     fun rubrics() = baseRepositoryImpl.rubricsAnnounced()
 
     fun getCount() = repositoryAnnouncedDb.getListAnnounced()
+
+    fun getRubricsDb() = repositoryDbRubrics.getListAnnounced()
+
+    suspend fun insertRubrics(rubricsDbModel: RubricsDbModel) = repositoryDbRubrics.insertRubrics(rubricsDbModel)
 }

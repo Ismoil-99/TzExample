@@ -65,7 +65,7 @@ class RubricFragment : Fragment() {
                             visibility = View.GONE
                         }
                         view.findViewById<RecyclerView>(R.id.rubrics).visibility = View.VISIBLE
-                        (view.findViewById<RecyclerView>(R.id.rubrics).adapter as RubricAdapter).submitList(rubrics.data)
+                        //(view.findViewById<RecyclerView>(R.id.rubrics).adapter as RubricAdapter).submitList(rubrics.data)
                     }
                     is UIState.Error ->{
                         Toast.makeText(requireContext(),R.string.error,Toast.LENGTH_SHORT).show()

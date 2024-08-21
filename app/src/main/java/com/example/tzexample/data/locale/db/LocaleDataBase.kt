@@ -5,13 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [AnnouncedDbModel::class, FavoriteDbModel::class,AnnouncedCountLocal::class], version = 4, exportSchema = false)
+@Database(entities = [AnnouncedDbModel::class, FavoriteDbModel::class,AnnouncedCountLocal::class,RubricsDbModel::class], version = 5, exportSchema = false)
 abstract class
 LocaleDataBase : RoomDatabase() {
 
     abstract fun announcedDb(): AnnouncedDao
     abstract fun favoriteDb():FavoriteAnnouncedDao
     abstract fun announcedDbCount():AnnouncedCountDao
+    abstract fun rubricsDb():RubricsDao
 
 
     companion object{
