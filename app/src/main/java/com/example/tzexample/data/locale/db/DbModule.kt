@@ -27,5 +27,10 @@ class DbModule {
     fun getFavoriteDao(appDatabase: LocaleDataBase): FavoriteAnnouncedDao {
         return appDatabase.favoriteDb()
     }
+    @Provides
+    @Singleton
+    fun getAnnouncedCountDao(appDatabase: LocaleDataBase): AnnouncedCountDao {
+        return appDatabase.announcedDbCount()
+    }
 
 }

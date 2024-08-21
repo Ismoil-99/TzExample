@@ -15,6 +15,13 @@ class RubricAdapter(
     private val onItemClicked: (idCategory:String,nameCategory:String) -> Unit,
 ): ListAdapter<Rubrics, RubricAdapter.MedicineViewHolder>(FinishDiffUtil()) {
 
+    companion object {
+        const val VIEW_TYPE = 4444
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return VIEW_TYPE
+    }
 
     class FinishDiffUtil : DiffUtil.ItemCallback<Rubrics>(){
         override fun areItemsTheSame(oldItem: Rubrics, newItem: Rubrics): Boolean {

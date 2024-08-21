@@ -43,24 +43,4 @@
         android:visibility="gone"
         tools:listitem="@layout/item_announced"
         />
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmer_view_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:visibility="visible"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <include layout="@layout/data_loading_state" />
-            <include layout="@layout/data_loading_state" />
-            <include layout="@layout/data_loading_state" />
-            <include layout="@layout/data_loading_state" />
-
-        </LinearLayout>
-
-    </com.facebook.shimmer.ShimmerFrameLayout>
 </LinearLayout>

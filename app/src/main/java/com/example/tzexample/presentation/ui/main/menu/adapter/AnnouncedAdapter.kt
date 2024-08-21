@@ -13,6 +13,8 @@ import com.example.tzexample.R
 import com.example.tzexample.data.locale.db.FavoriteDbModel
 import com.example.tzexample.data.models.Announcement
 import com.example.tzexample.databinding.ItemAnnouncedBinding
+import com.example.tzexample.presentation.ui.main.search.rubric.adapter.RubricAdapter
+import com.example.tzexample.presentation.ui.main.search.rubric.adapter.RubricAdapter.Companion
 
 class AnnouncedAdapter(
     private val onInfoOrder:(idOrder:Long,) -> Unit,
@@ -22,6 +24,13 @@ class AnnouncedAdapter(
 ) {
     class ViewHolders(val binding: ItemAnnouncedBinding) : RecyclerView.ViewHolder(binding.root)
 
+    companion object {
+        const val VIEW_TYPE = 2222
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return VIEW_TYPE
+    }
 
     override fun onBindViewHolder(holder: ViewHolders, position: Int) {
         with(holder) {

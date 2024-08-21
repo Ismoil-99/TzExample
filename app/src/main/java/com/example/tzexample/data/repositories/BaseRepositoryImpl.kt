@@ -1,6 +1,9 @@
 package com.example.tzexample.data.repositories
 
 import android.util.Log
+import com.example.tzexample.data.locale.db.AnnouncedCountLocal
+import com.example.tzexample.data.locale.db.RepositoryAnnouncedDb
+import com.example.tzexample.data.locale.db.RepositoryFavoriteDb
 import com.example.tzexample.data.models.Announcement
 import com.example.tzexample.data.models.Category
 import com.example.tzexample.data.models.ItemsAnnouncement
@@ -8,13 +11,16 @@ import com.example.tzexample.data.models.Rubrics
 import com.example.tzexample.data.remote.apiservices.BaseApiService
 import com.example.tzexample.presentation.extensions.UIState
 import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.HttpException
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class BaseRepositoryImpl @Inject constructor(
-    private val baseApiService: BaseApiService
+    private val baseApiService: BaseApiService,
+    private val repositoryAnnouncedDb: RepositoryAnnouncedDb
 ) :BaseRepository {
     override fun showAnnounced(id: String): Flow<UIState<Announcement>> {
         return flow {

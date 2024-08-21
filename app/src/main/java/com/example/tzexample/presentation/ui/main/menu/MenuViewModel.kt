@@ -6,7 +6,9 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import com.example.tzexample.data.datasource.AnnouncementDataSource
+import com.example.tzexample.data.locale.db.AnnouncedCountLocal
 import com.example.tzexample.data.locale.db.FavoriteDbModel
+import com.example.tzexample.data.locale.db.RepositoryAnnouncedDb
 import com.example.tzexample.data.locale.db.RepositoryFavoriteDb
 import com.example.tzexample.data.remote.apiservices.BaseApiService
 import com.example.tzexample.data.repositories.BaseRepositoryImpl
@@ -18,7 +20,8 @@ import javax.inject.Inject
 class MenuViewModel @Inject constructor(
     private val baseRepositoryImpl: BaseRepositoryImpl,
     private val baseApiService: BaseApiService,
-    private val favoriteDb: RepositoryFavoriteDb
+    private val favoriteDb: RepositoryFavoriteDb,
+    private val repositoryAnnouncedDb: RepositoryAnnouncedDb
 ) :ViewModel() {
 
     var listData = Pager(config = PagingConfig(pageSize = 10),
@@ -32,4 +35,11 @@ class MenuViewModel @Inject constructor(
     suspend fun insertFavorite(
         favoriteDbModel: FavoriteDbModel
     ) = favoriteDb.insertFavorite(favoriteDbModel)
+    suspend fun insertDbCount(
+        announcedCountLocal: AnnouncedCountLocal
+    ) = repositoryAnnouncedDb.insertFavorite(announcedCountLocal)
+
+    fun rubrics() = baseRepositoryImpl.rubricsAnnounced()
+
+    fun getCount() = repositoryAnnouncedDb.getListAnnounced()
 }
