@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.tzexample.R
 import com.example.tzexample.data.locale.preferences.PreferencesHelper
 import com.example.tzexample.presentation.extensions.activityNavController
@@ -25,23 +26,8 @@ class AddFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val preferencesHelper = PreferencesHelper(requireContext())
-        preferencesHelper.setBackProfile(0)
-        if (!preferencesHelper.isAuthored()){
-            view.findViewById<TextView>(R.id.name_auth).visibility = View.VISIBLE
-            view.findViewById<MaterialButton>(R.id.sign_in).visibility = View.VISIBLE
-            view.findViewById<MaterialButton>(R.id.add_announced).visibility = View.GONE
-        }else{
-            view.findViewById<TextView>(R.id.name_auth).visibility = View.GONE
-            view.findViewById<MaterialButton>(R.id.sign_in).visibility = View.GONE
-            view.findViewById<MaterialButton>(R.id.add_announced).visibility = View.VISIBLE
-        }
-        view.findViewById<MaterialButton>(R.id.sign_in).setOnClickListener {
-            preferencesHelper.setBackProfile(1)
-            activityNavController().navigate(R.id.to_flow_auth)
-        }
         view.findViewById<MaterialButton>(R.id.add_announced).setOnClickListener {
-            activityNavController().navigate(R.id.to_add_announced)
+            findNavController().navigate(R.id.to_select_category)
         }
     }
 }

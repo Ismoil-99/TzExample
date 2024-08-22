@@ -10,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.GridLayout
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.marginStart
 import androidx.fragment.app.viewModels
@@ -39,8 +41,13 @@ class FillterDialogFragment : BottomSheetDialogFragment() {
 
     @SuppressLint("MissingInflatedId")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val newRowChild: View =
-            layoutInflater.inflate(R.layout.list_rubric_new, null)
+        view.findViewById<Button>(R.id.filt_search).setOnClickListener {
+            dismiss()
+        }
+        view.findViewById<ImageView>(R.id.close_filter).setOnClickListener {
+            dismiss()
+        }
+
         viewModel.getRubricsDb().observe(viewLifecycleOwner){rubrics ->
             rubrics.map {
                 val textView = TextView(requireContext())

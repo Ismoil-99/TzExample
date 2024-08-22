@@ -105,6 +105,20 @@
             android:name="id"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/categorySelectFragment"
+        android:name="com.example.tzexample.presentation.ui.main.add.CategorySelectFragment"
+        android:label="@string/category_select"
+        tools:layout="@layout/fragment_category_select" />
+    <fragment
+        android:id="@+id/categorySelectSecondFragment"
+        android:name="com.example.tzexample.presentation.ui.main.add.CategorySelectSecondFragment"
+        android:label=""
+        tools:layout="@layout/fragment_category_select_second" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
     <action
         android:id="@+id/to_search_from_main"
         app:destination="@+id/searchFragment"
@@ -160,6 +174,20 @@
     <action
         android:id="@+id/to_favorite_show"
         app:destination="@+id/showFavoriteFragment"
+        app:enterAnim="@anim/from_right"
+        app:exitAnim="@anim/to_left"
+        app:popEnterAnim="@anim/from_left"
+        app:popExitAnim="@anim/to_right" />
+    <action
+        android:id="@+id/to_select_category"
+        app:destination="@+id/categorySelectFragment"
+        app:enterAnim="@anim/from_right"
+        app:exitAnim="@anim/to_left"
+        app:popEnterAnim="@anim/from_left"
+        app:popExitAnim="@anim/to_right" />
+    <action
+        android:id="@+id/to_select_category_second"
+        app:destination="@+id/categorySelectSecondFragment"
         app:enterAnim="@anim/from_right"
         app:exitAnim="@anim/to_left"
         app:popEnterAnim="@anim/from_left"

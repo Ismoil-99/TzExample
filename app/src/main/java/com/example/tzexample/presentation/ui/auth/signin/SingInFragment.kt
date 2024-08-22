@@ -33,7 +33,7 @@ class SingInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        backToFlow(R.id.fragment_container_view)
+        //backToFlow(R.id.fragment_main_container)
         view.findViewById<EditText>(R.id.send_otp_user)
             .apply {
                 addTextChangedListener(object : TextWatcher {

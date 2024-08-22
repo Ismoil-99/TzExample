@@ -64,4 +64,6 @@
     <string name="dorogo">Дороже</string>
     <string name="deshevle">Дешевле</string>
     <string name="date">По дате</string>
+    <string name="show_result">Показать результаты</string>
+    <string name="category_select">Выберите категорию</string>
 </resources>

@@ -7,6 +7,7 @@ import androidx.navigation.ui.NavigationUiSaveStateControl
 import androidx.navigation.ui.setupWithNavController
 import com.example.tzexample.R
 import com.example.tzexample.presentation.base.BaseFlowFragment
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,6 +49,13 @@ class FlowMainFragment:BaseFlowFragment(R.layout.fragment_flow_main,R.id.fragmen
                 }
                 R.id.showFavoriteFragment ->{
                     bottomNavigationView.visibility = View.GONE
+                }
+                R.id.categorySelectFragment ->{
+                    bottomNavigationView.visibility = View.GONE
+                }
+                R.id.categorySelectSecondFragment ->{
+                    bottomNavigationView.visibility = View.GONE
+                    requireActivity().findViewById<MaterialToolbar>(R.id.toolbar).visibility = View.VISIBLE
                 }
                 else -> {
                     bottomNavigationView.visibility = View.VISIBLE

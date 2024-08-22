@@ -41,11 +41,10 @@ class AddAnnouncedFragment : Fragment() {
     private val imageValue = MutableStateFlow<Uri?>(null)
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onResume() {
+        super.onResume()
         requireActivity().findViewById<MaterialToolbar>(R.id.toolbar).visibility = View.GONE
     }
-
 
 
     override fun onCreateView(
@@ -119,6 +118,5 @@ class AddAnnouncedFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        requireActivity().findViewById<MaterialToolbar>(R.id.toolbar).visibility = View.VISIBLE
     }
 }
