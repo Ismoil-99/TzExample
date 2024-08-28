@@ -7,7 +7,7 @@ class PreferencesHelper(context: Context) {
     private val preferences: SharedPreferences =
         context.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE)
 
-    private fun remove(key: String) {
+    fun remove(key: String) {
         preferences.edit().remove(key).apply()
     }
 
@@ -18,6 +18,15 @@ class PreferencesHelper(context: Context) {
         preferences
             .edit()
             .putString(ACCESS_TOKEN, tokens)
+            .apply()
+    }
+
+    fun getTypeAnnounced():Int = preferences.getInt(TYPE_ANNOUNCED,0)
+
+    fun setTypeAnnounced(type:Int){
+        preferences
+            .edit()
+            .putInt(TYPE_ANNOUNCED, type)
             .apply()
     }
 
@@ -47,6 +56,7 @@ class PreferencesHelper(context: Context) {
         private const val ACCESS_TOKEN = "access_token"
         private const val BACK_FROM_PROFILE = "back_from_profile"
         private const val TELL_USER = "tel_user"
+        private const val TYPE_ANNOUNCED = "type_announced"
 
         const val PREFERENCES_FILE_NAME = "application_data"
     }

@@ -113,7 +113,7 @@
     <fragment
         android:id="@+id/categorySelectSecondFragment"
         android:name="com.example.tzexample.presentation.ui.main.add.CategorySelectSecondFragment"
-        android:label=""
+        android:label="@string/category_select"
         tools:layout="@layout/fragment_category_select_second" >
         <argument
             android:name="id"

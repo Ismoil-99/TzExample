@@ -18,8 +18,6 @@ class AddAnnouncedViewModel @Inject constructor(private val repositoryDb: Reposi
            CategorySelect(2,"Транспорт"),
            CategorySelect( 3,"Вакансии"),
            CategorySelect(4,"Телефоны"),
-           CategorySelect( 5,"Электроника"),
-           CategorySelect( 6,"Все для дома")
        )
 
       private fun house() = listOf(
@@ -33,57 +31,29 @@ class AddAnnouncedViewModel @Inject constructor(private val repositoryDb: Reposi
        )
 
      private  fun cars() = listOf(
-              CategorySelectSecond(1,"Легковые автомобили"),
-              CategorySelectSecond(2,"Мото транспорт"),
-              CategorySelectSecond(3,"Коммерческий транспорт"),
-              CategorySelectSecond(4,"Запчасти и принадлежности"),
-              CategorySelectSecond(5,"Автосервис и ремонт"),
-              CategorySelectSecond(6,"Другой транспорт"),
-       )
+              CategorySelectSecond(8,"Легковые автомобили"),
+              CategorySelectSecond(9,"Мото транспорт"),
+              CategorySelectSecond(10,"Запчасти и принадлежности"),
+         )
 
       private fun vacancies() = listOf(
-              CategorySelectSecond(1,"HR,кадры"),
-              CategorySelectSecond(2,"IT,телеком,компьтеры"),
-              CategorySelectSecond(3,"Банки,лизинг"),
-              CategorySelectSecond(4,"Бухгалтерия,финансы,юристы"),
-              CategorySelectSecond(5,"Государственные службы"),
-              CategorySelectSecond(6,"Красота,фитнес,спорт"),
-              CategorySelectSecond(7,"Маркетинг,фармация"),
-              CategorySelectSecond(8,"Охрана,безопасность"),
-              CategorySelectSecond(9,"Продажи,розничная торговля"),
-              CategorySelectSecond(10,"Руководители"),
-              CategorySelectSecond(11,"СМИ,издательство"),
-              CategorySelectSecond(12,"Транспорт,логистика"),
-              CategorySelectSecond(13,"СМИ,издательство"),
-              CategorySelectSecond(14,"Работа за рубежом"),
+              CategorySelectSecond(11,"HR,кадры"),
+              CategorySelectSecond(12,"IT,телеком,компьтеры"),
+              CategorySelectSecond(13,"Банки,лизинг"),
+              CategorySelectSecond(14,"Бухгалтерия,финансы,юристы"),
+              CategorySelectSecond(15,"Государственные службы"),
+              CategorySelectSecond(16,"Охрана,безопасность"),
+              CategorySelectSecond(17,"Продажи,розничная торговля"),
+              CategorySelectSecond(18,"Руководители"),
+              CategorySelectSecond(19,"СМИ,издательство"),
+              CategorySelectSecond(20,"Транспорт,логистика"),
        )
 
       private fun telephone() = listOf(
-              CategorySelectSecond(1,"Мобильные телефоны"),
-              CategorySelectSecond(2,"Аксессуары для телефонов"),
-              CategorySelectSecond(3,"Ремонт и сервис телефонов"),
-              CategorySelectSecond(4,"Запчасти и инструменты"),
-              CategorySelectSecond(5,"Другая техника связи"),
+              CategorySelectSecond(21,"Мобильные телефоны"),
+              CategorySelectSecond(22,"Аксессуары для телефонов"),
        )
 
-     private  fun elektronika() = listOf(
-              CategorySelectSecond(1,"Фото и видеокамеры"),
-              CategorySelectSecond(2,"TV,DVD и видео"),
-              CategorySelectSecond(3,"Аудио и стерео"),
-              CategorySelectSecond(4,"Техника для дома и кухни"),
-              CategorySelectSecond(5,"Другая техника"),
-              CategorySelectSecond(6,"Климатическая техника")
-       )
-
-     private  fun forHome() = listOf(
-              CategorySelectSecond(1,"Мебель"),
-              CategorySelectSecond(2,"Текстиль и интерьер"),
-              CategorySelectSecond(3,"Пищевые продукты"),
-              CategorySelectSecond(4,"Посуда и кухонная утварь"),
-              CategorySelectSecond(5,"Сад и огород"),
-              CategorySelectSecond(6,"Сейфы"),
-              CategorySelectSecond(7,"Другие товары для дома"),
-       )
 
        fun showSelectCategory(id:Int):List<CategorySelectSecond> {
               return when(id){
@@ -91,8 +61,6 @@ class AddAnnouncedViewModel @Inject constructor(private val repositoryDb: Reposi
                      2 -> cars()
                      3 -> vacancies()
                      4 -> telephone()
-                     5 -> elektronika()
-                     6 -> forHome()
                      else -> emptyList()
               }
        }

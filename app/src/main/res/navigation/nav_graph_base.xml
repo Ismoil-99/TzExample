@@ -41,4 +41,10 @@
         app:popUpToInclusive="true"
         app:launchSingleTop="true"
         />
+    <action
+        android:id="@+id/to_main_from_add"
+        app:destination="@+id/flowMainFragment"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/nav_graph_base"
+        app:popUpToInclusive="true" />
 </navigation>

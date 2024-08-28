@@ -3,7 +3,6 @@
     <string name="main_text">Главная</string>
     <string name="history_search">Поиск</string>
     <string name="add">Подать объявление</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="desc">Описание</string>
     <string name="call">Позвонить</string>
@@ -19,7 +18,6 @@
     <string name="sing_in_text">Войти</string>
     <string name="putnumber">"Введите номер "</string>
     <string name="title_number">Мобильный номер</string>
-    <string name="make_it">Powered by IT-SERVICE</string>
     <string name="signup">Регистрация</string>
     <string name="send_sms_tel_text">Код оправлен на номер</string>
     <string name="coutine">Продолжить</string>
@@ -66,4 +64,266 @@
     <string name="date">По дате</string>
     <string name="show_result">Показать результаты</string>
     <string name="category_select">Выберите категорию</string>
+    <string name="district_text">Район</string>
+    <string name="square_text">Площадь</string>
+    <string name="floor_text">Этаж</string>
+    <string name="type_remont">Тип застройки</string>
+    <string name="type_remont_text">Ремонт</string>
+    <string name="count_home_text">Комнат в квартире</string>
+    <string name="state_text">Состояние</string>
+    <string name="count_house_text">Количество комнат</string>
+    <string name="etazh_text">Этажность</string>
+    <string name="square_text_havli">Площадь участка</string>
+    <string name="type_havli_text">Тип дома</string>
+    <string name="square_text_garazh">Площадь гаража</string>
+    <string name="model_text">Модел автомобиля</string>
+    <string name="type_model_text">Название</string>
+    <string name="god_build">Год выпуска</string>
+    <string name="square_motor_text">Обьем двигателя</string>
+    <string name="probeg_text">Пробег</string>
+    <string name="kuzov_text">Кузов</string>
+    <string name="peredaja_text">Коробка передач</string>
+    <string name="topliva_text">Вид топлива</string>
+    <string name="privod_text">Привод</string>
+    <string name="marka_text">Марка</string>
+    <string name="type_zapchast_text">Тип запчастей</string>
+    <string name="grafik_text">График</string>
+    <string name="year_text">Стаж</string>
+    <string name="sfera_text">Сфера деятельности</string>
+    <string name="adress_text">Название компании</string>
+    <string name="count_text">Зарплата</string>
+    <string name="telephone_marka_text">Модел телефона</string>
+    <string name="size_text">Встроенная память</string>
+    <string-array name="etazh">
+        <item>Сокольный</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="count_home">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="type_home">
+        <item>Советский</item>
+        <item>Новостройка</item>
+    </string-array>
+    <string-array name="type_home_remont">
+        <item>Новый ремонт</item>
+        <item>С ремонтом</item>
+        <item>Без ремонта (коробка)</item>
+    </string-array>
+    <string-array name="type_zastoryka_remont">
+        <item>Вторичный рынок</item>
+        <item>Новостройка</item>
+    </string-array>
+    <string-array name="type_state_remont">
+        <item>Построено</item>
+        <item>На стадии строительства</item>
+    </string-array>
+    <string-array name="type_havli">
+        <item>Хавли</item>
+        <item>Дача</item>
+    </string-array>
+    <string-array name="model_cars">
+        <item>Audi</item>
+        <item>Alfa Romeo</item>
+        <item>Bentley</item>
+        <item>BMW</item>
+        <item>BYD</item>
+        <item>Cadillac</item>
+        <item>Chevrolet</item>
+        <item>Chery</item>
+        <item>Citroen</item>
+        <item>Daewoo</item>
+        <item>Dodge</item>
+        <item>Fiat</item>
+        <item>Ford</item>
+        <item>Cag</item>
+        <item>Haval</item>
+        <item>Hummer</item>
+        <item>Hyundai</item>
+        <item>Jac</item>
+        <item>Kia</item>
+        <item>Land Rover</item>
+        <item>Lexus</item>
+        <item>LiXiang</item>
+        <item>Mazda</item>
+        <item>Mercedes-Benz</item>
+        <item>Ravon</item>
+    </string-array>
+    <string-array name="found_cars">
+       <item>2024</item>
+        <item>2023</item>
+        <item>2022</item>
+        <item>2021</item>
+        <item>2020</item>
+        <item>2019</item>
+        <item>2018</item>
+        <item>2017</item>
+        <item>2016</item>
+        <item>2015</item>
+        <item>2014</item>
+        <item>2013</item>
+        <item>2012</item>
+        <item>2011</item>
+        <item>2010</item>
+        <item>2009</item>
+        <item>2008</item>
+        <item>2007</item>
+        <item>2006</item>
+        <item>2005</item>
+        <item>2004</item>
+        <item>2003</item>
+        <item>2002</item>
+        <item>2001</item>
+        <item>2000</item>
+    </string-array>
+    <string-array name="motor_cars">
+        <item>Электрический</item>
+        <item>0.4 л</item>
+        <item>0.5 л</item>
+        <item>0.6 л</item>
+        <item>0.7 л</item>
+        <item>0.8 л</item>
+        <item>0.9 л</item>
+        <item>1.0 л</item>
+        <item>1.1 л</item>
+        <item>1.2 л</item>
+        <item>1.3 л</item>
+        <item>1.4 л</item>
+        <item>1.5 л</item>
+        <item>1.6 л</item>
+        <item>1.7 л</item>
+        <item>1.8 л</item>
+        <item>1.9 л</item>
+        <item>2.0 л</item>
+        <item>2.1 л</item>
+        <item>2.2 л</item>
+        <item>2.3 л</item>
+        <item>2.4 л</item>
+        <item>2.5 л</item>
+        <item>2.6 л</item>
+        <item>2.7 л</item>
+        <item>2.8 л</item>
+        <item>2.9 л</item>
+        <item>3.0 л</item>
+        <item>3.1 л</item>
+        <item>3.2 л</item>
+        <item>3.3 л</item>
+        <item>3.4 л</item>
+        <item>3.5 л</item>
+        <item>3.6 л</item>
+        <item>3.7 л</item>
+        <item>3.8 л</item>
+        <item>3.9 л</item>
+        <item>4.0 л</item>
+        <item>4.1 л</item>
+        <item>4.2 л</item>
+        <item>4.3 л</item>
+        <item>4.4 л</item>
+        <item>4.5 л</item>
+        <item>4.6 л</item>
+        <item>4.7 л</item>
+        <item>4.8 л</item>
+        <item>4.9 л</item>
+        <item>5.0 л</item>
+    </string-array>
+    <string-array name="state_cars">
+        <item>С пробегом</item>
+        <item>Новая</item>
+        <item>Ретро</item>
+    </string-array>
+    <string-array name="kuzov_cars">
+        <item>Седан</item>
+        <item>Хэтчбек</item>
+        <item>Универсал</item>
+        <item>Внедорожник</item>
+        <item>Кроссовер</item>
+        <item>Пикап</item>
+    </string-array>
+    <string-array name="korobka_cars">
+        <item>Механика</item>
+        <item>Автомат</item>
+        <item>Вариатор</item>
+        <item>Робот</item>
+    </string-array>
+    <string-array name="topliva_cars">
+        <item>Бензин</item>
+        <item>Бензин+газ</item>
+        <item>Газ</item>
+        <item>Дизель</item>
+        <item>Гибрид</item>
+    </string-array>
+    <string-array name="privod_cars">
+        <item>Передний</item>
+        <item>Задний</item>
+        <item>Полный</item>
+    </string-array>
+    <string-array name="model_motocycle">
+        <item>Honda</item>
+        <item>Suzuki</item>
+        <item>Harley Davidson</item>
+        <item>Kawasaki</item>
+    </string-array>
+    <string-array name="state_zapjast">
+        <item>Б/у</item>
+        <item>Новый</item>
+    </string-array>
+    <string-array name="type_zapjast">
+        <item>Фары</item>
+        <item>Двигатель</item>
+        <item>Запчати для ТО</item>
+        <item>Кузов</item>
+        <item>Подвестка</item>
+        <item>Рулевое управление</item>
+        <item>Салон</item>
+        <item>Стекла,зеркала</item>
+        <item>Тормозная система</item>
+    </string-array>
+    <string-array name="grafik_work">
+        <item>Полный день</item>
+        <item>Свободный график</item>
+        <item>Посменно</item>
+        <item>Удаленно</item>
+        <item>Совмещание</item>
+        <item>Ночной</item>
+    </string-array>
+    <string-array name="stazh_work">
+        <item>Любой</item>
+        <item>Без опыта</item>
+        <item>от 1 года</item>
+        <item>от 3 лет</item>
+        <item>от 5 лет</item>
+    </string-array>
+    <string-array name="model_tel">
+        <item>Apple</item>
+        <item>Google</item>
+        <item>Infinix</item>
+        <item>Huawei</item>
+        <item>Meizu</item>
+        <item>Motorola</item>
+        <item>Nokia</item>
+        <item>OnePlus</item>
+        <item>Oppo</item>
+        <item>Realme</item>
+        <item>Samsung</item>
+        <item>Xiaomi</item>
+        <item>ZTE</item>
+    </string-array>
+    <string-array name="ozu_tel">
+        <item>4 gb</item>
+        <item>8 gb</item>
+        <item>16 gb</item>
+        <item>32 gb</item>
+        <item>64 gb</item>
+        <item>128 gb</item>
+    </string-array>
 </resources>

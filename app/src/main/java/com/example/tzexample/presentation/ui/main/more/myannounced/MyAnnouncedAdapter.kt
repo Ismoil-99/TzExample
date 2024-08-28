@@ -1,6 +1,7 @@
 package com.example.tzexample.presentation.ui.main.more.myannounced
 
 import android.graphics.BitmapFactory
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,10 +31,12 @@ class MyAnnouncedAdapter(private val onInfoAnnounced:(idOrder:String,) -> Unit):
             binding.apply {
                 titleAnnounced.text = rubric.nameAnnounced
                 priceAnnounced.text = "${rubric.priceAnnounced} с."
+                Log.d("im","${rubric.imageAnnounced}")
                 val bitmap = BitmapFactory.decodeByteArray(
                     rubric.imageAnnounced,0,rubric.imageAnnounced.size
                 )
                 iconAnnounced.setImageBitmap(bitmap)
+
                 root.setOnClickListener {
                     onInfoAnnounced.invoke(rubric.id.toString())
                 }
